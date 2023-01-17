@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1673955235 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/main.cpp
+1673957704 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/main.cpp
 	<iostream>
+	"Entidades.h"
 
 1670261729 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Dominios.cpp
 	"Dominios.h"
