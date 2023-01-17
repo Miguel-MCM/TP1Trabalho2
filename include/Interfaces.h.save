@@ -42,11 +42,13 @@ class IServicoProjeto {
         virtual bool cadastrarProjeto(Projeto) = 0;
         virtual bool descadastrarProjeto(Codigo) = 0;
         virtual bool editarProjeto(Projeto) = 0;
-        virtual bool consultarProjeto(Codigo) = 0;
+        virtual bool consultarProjeto(Projeto*) = 0;
+        
         virtual bool cadastrarTarefa(Tarefa) = 0;
         virtual bool descadastrarTarefa(Codigo) = 0;
         virtual bool editarTarefa(Tarefa) = 0;
-        virtual bool consultarTarefa(Codigo) = 0;
+        virtual bool consultarTarefa(Tarefa*) = 0;
+        virtual ~IServicoProjeto(){}
 };
 
 
