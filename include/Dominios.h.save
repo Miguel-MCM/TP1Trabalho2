@@ -1,0 +1,17 @@
+#ifndef DOMINIOS_H
+#define DOMINIOS_H
+
+
+class Dominios
+{
+    public:
+        Dominios();
+        virtual ~Dominios();
+
+    protected:
+
+    private:
+};
+file:///home/miguel/Documents/3Semestre/TP1/TP1Trabalho1/include/Dominios.h
+
+#endif // DOMINIOS_H
