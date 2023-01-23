@@ -1,4 +1,5 @@
 #include "Containers.h"
+#include "Telas.h"
 
 ContainerUsuario* ContainerUsuario::instancia = nullptr;
 
@@ -12,8 +13,10 @@ ContainerUsuario* ContainerUsuario::getInstancia() {
 }
 
 bool ContainerUsuario::incluir(Usuario usuario){
-    return container.insert(make_pair(usuario.getMatricula().getValor(), usuario)).second;
-    //O QUE O SECOND ESTÁ FAZENDO?
+    bool resultado = container.insert(make_pair(usuario.getMatricula().getValor(), usuario)).second;
+    TelaMensagem tela;
+    tela.apresentar(usuario.getMatricula().getValor());
+    return resultado;
 }
 
 bool ContainerUsuario::remover(Matricula matricula){

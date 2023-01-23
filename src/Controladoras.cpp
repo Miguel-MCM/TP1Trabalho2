@@ -16,7 +16,7 @@ void CntrApresentacaoControle::executar(){
             }
             else{
                 TelaMensagem telaMensagem;
-                telaMensagem.apresentar("Falha na autenticação.");
+                telaMensagem.apresentar("Falha na autenticacao.");
             }
         }
         else if (opcao == '2'){
@@ -26,8 +26,8 @@ void CntrApresentacaoControle::executar(){
             TelaMensagem telaMensagem;
             telaMensagem.apresentar("Dado em formato incorreto");
         }
-        return;
     }
+    return;
 }
 
 bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){

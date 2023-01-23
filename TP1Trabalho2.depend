@@ -55,7 +55,7 @@
 	<stdlib.h>
 	"curses.h"
 
-1674490368 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\controladoras.cpp
+1674492191 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\controladoras.cpp
 	"Controladoras.h"
 	"Comandos.h"
 
@@ -68,8 +68,9 @@
 	"Entidades.h"
 	"Containers.h"
 
-1674348512 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\containers.cpp
+1674491683 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\containers.cpp
 	"Containers.h"
+	"Telas.h"
 
 1674348512 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\containers.h
 	"Entidades.h"
