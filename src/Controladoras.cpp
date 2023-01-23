@@ -2,10 +2,9 @@
 #include "Comandos.h"
 
 void CntrApresentacaoControle::executar(){
-
+    TelaMensagem telaMensagem;
+    TelaControle telaControle;
     while(true){
-
-        TelaControle telaControle;
         char opcao;
         opcao = telaControle.apresentar();
 
@@ -15,7 +14,6 @@ void CntrApresentacaoControle::executar(){
                 break;
             }
             else{
-                TelaMensagem telaMensagem;
                 telaMensagem.apresentar("Falha na autenticacao.");
             }
         }
@@ -23,7 +21,6 @@ void CntrApresentacaoControle::executar(){
                 cntrApresentacaoUsuario->cadastrar();
         }
         else {
-            TelaMensagem telaMensagem;
             telaMensagem.apresentar("Dado em formato incorreto");
         }
     }
@@ -81,14 +78,13 @@ void CntrApresentacaoUsuario::executar(Matricula* matricula){
 void CntrApresentacaoUsuario::cadastrar() {
 
     bool resultado;
-    Usuario usuario;
-    Usuario* ptr = &usuario;
+    Usuario* usuario = new Usuario();
 
     while(true) {
 
         try {
             TelaCadastro telaCadastro;
-            telaCadastro.apresentar(ptr);
+            telaCadastro.apresentar(usuario);
             break;
         }
         catch (const invalid_argument &exp) {
@@ -97,7 +93,7 @@ void CntrApresentacaoUsuario::cadastrar() {
         }
     }
 
-    resultado = cntrServicoUsuario->cadastrar(usuario);
+    resultado = cntrServicoUsuario->cadastrar(*usuario);
     TelaMensagem telaMensagem;
 
     if (resultado) {
