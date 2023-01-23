@@ -14,9 +14,10 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="src" />
 				</Compiler>
 				<Linker>
-					<Add library="C:/Users/Anita Oliveira/Desktop/Trabalho 2/TP1Trabalho2/pdcurses.a" />
+					<Add library="ncurses-6.4/lib/libncurses.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -30,13 +31,16 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="C:/Users/Anita Oliveira/Desktop/Trabalho 2/TP1Trabalho2/pdcurses.a" />
+					<Add library="ncurses-6.4/lib/libncurses.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="ncurses-6.4/lib/libncurses.a" />
+		</Linker>
 		<Unit filename="include/Builders.h" />
 		<Unit filename="include/Comandos.h" />
 		<Unit filename="include/Containers.h" />
