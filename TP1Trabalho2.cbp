@@ -15,6 +15,9 @@
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
+				<Linker>
+					<Add library="C:/Users/Anita Oliveira/Desktop/Trabalho 2/TP1Trabalho2/pdcurses.a" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/TP1Trabalho2" prefix_auto="1" extension_auto="1" />
@@ -27,18 +30,30 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="C:/Users/Anita Oliveira/Desktop/Trabalho 2/TP1Trabalho2/pdcurses.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Builders.h" />
+		<Unit filename="include/Comandos.h" />
+		<Unit filename="include/Containers.h" />
+		<Unit filename="include/Controladoras.h" />
 		<Unit filename="include/Dominios.h" />
 		<Unit filename="include/Entidades.h" />
 		<Unit filename="include/Interfaces.h" />
+		<Unit filename="include/Telas.h" />
+		<Unit filename="include/curses.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Builders.cpp" />
+		<Unit filename="src/Comandos.cpp" />
+		<Unit filename="src/Containers.cpp" />
+		<Unit filename="src/Controladoras.cpp" />
 		<Unit filename="src/Dominios.cpp" />
 		<Unit filename="src/Entidades.cpp" />
+		<Unit filename="src/Telas.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
