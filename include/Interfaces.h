@@ -2,10 +2,16 @@
 #define INTERFACES_H_INCLUDED
 
 #include "Entidades.h"
+#include "Containers.h"
+
+class IServicoAutenticacao;
+class IServicoUsuario;
+class IServicoProjeto;
 
 class IApresentacaoAutenticacao {
     public:
         virtual bool autenticar(Matricula*) = 0;
+        virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoAutenticacao(){}
 };
 
@@ -13,12 +19,14 @@ class IApresentacaoUsuario {
     public:
         virtual void executar(Matricula*) = 0;
         virtual void cadastrar() = 0;
+        virtual void setCntrServicoUsuario(IServicoUsuario*) = 0;
         virtual ~IApresentacaoUsuario(){}
 };
 
 class IApresentacaoProjeto {
     public:
         virtual void executar(Matricula*) = 0;
+        virtual void setCntrServicoProjeto(IServicoProjeto*) = 0;
         virtual ~IApresentacaoProjeto(){}
 };
 
