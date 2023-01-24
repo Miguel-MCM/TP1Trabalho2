@@ -11,8 +11,7 @@ void CntrApresentacaoControle::executar(){
 
         if(opcao=='1') {
             if (cntrApresentacaoAutenticacao->autenticar(&matricula)) {
-                cntrApresentacaoUsuario->executar(&matricula);
-                break;
+                menuAutenticado(&matricula);
             }
             else{
                 TelaMensagem telaMensagem;
@@ -28,6 +27,34 @@ void CntrApresentacaoControle::executar(){
         }
     }
     return;
+}
+
+void CntrApresentacaoControle::menuAutenticado(Matricula *matricula) {
+
+    TelaMenuAutenticado telaMenuAutenticado;
+    char opcao;
+
+    while(true) {
+        opcao = telaMenuAutenticado.apresentar();
+
+        switch(opcao) {
+        case '1':
+            cntrApresentacaoUsuario->executar(matricula);
+            break;
+        case '2':
+            cntrApresentacaoProjeto->executar(matricula);
+            break;
+        case '3':
+            return;
+        default:
+            TelaMensagem telaMensagem;
+            telaMensagem.apresentar("Opcao Invalida");
+        }
+    }
+
+
+
+
 }
 
 bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){

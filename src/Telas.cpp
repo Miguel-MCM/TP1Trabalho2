@@ -129,5 +129,27 @@ char TelaControle::apresentar() {
     return dado1[0];
 }
 
+char TelaMenuAutenticado::apresentar() {
+    char campo1[]="Selecione uma das opções : ";
+    char campo2[]="1 - Serviços de Usuário";
+    char campo3[]="2 - Serviços de Projetos";
+    char campo4[]="3 - Sair";
+    char dado1[1];
+    int linha,coluna;
+
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+    mvprintw(linha/2,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/2 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    mvprintw(linha/2 + 4,(coluna-strlen(campo3))/2,"%s",campo3);
+    mvprintw(linha/2 + 6,(coluna-strlen(campo4))/2,"%s",campo4);
+    getstr(dado1);
+    clear();
+    endwin();
+
+    return dado1[0];
+
+}
+
 //TELA DE DADOS
 //TELA DE EDITAR NOME E SENHA

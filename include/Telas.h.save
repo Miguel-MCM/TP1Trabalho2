@@ -4,7 +4,6 @@
 #include "Entidades.h"
 #include <string.h>
 #include <stdlib.h>
-
 #ifdef WIN32
     #include "curses.h"
 #else
@@ -41,5 +40,7 @@ class TelaControle {
 public:
     char apresentar();
 };
+
+
 
 #endif // TELAS_H_INCLUDED

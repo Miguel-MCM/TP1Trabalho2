@@ -14,7 +14,7 @@ class CntrApresentacaoControle{
         IApresentacaoAutenticacao* cntrApresentacaoAutenticacao;
         IApresentacaoUsuario* cntrApresentacaoUsuario;
         IApresentacaoProjeto* cntrApresentacaoProjeto;
-        void menuAutenticado(Matricula*);
+        void menuAutenticado(Matricula&);
 
     public:
         void executar();
@@ -32,7 +32,7 @@ inline void CntrApresentacaoControle::setCntrApresentacaoUsuario(IApresentacaoUs
 }
 
 inline void CntrApresentacaoControle::setCntrlApresentacaoProjeto(IApresentacaoProjeto* cntr){
-    cntrApresentacaoProjeto = cntr;
+    cntrApresentacaoUsuario = cntr;
 }
 
 

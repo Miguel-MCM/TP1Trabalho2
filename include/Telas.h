@@ -41,4 +41,9 @@ public:
     char apresentar();
 };
 
+class TelaMenuAutenticado {
+public:
+    char apresentar();
+};
+
 #endif // TELAS_H_INCLUDED
