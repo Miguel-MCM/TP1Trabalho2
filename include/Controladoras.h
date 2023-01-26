@@ -61,6 +61,18 @@ void inline CntrApresentacaoUsuario::setCntrServicoUsuario(IServicoUsuario* cntr
     this->cntrServicoUsuario = cntrServicoUsuario;
 }
 
+class CntrApresentacaoProjeto:public IApresentacaoProjeto {
+    private:
+        IServicoProjeto* cntrServicoProjeto;
+    public:
+        void executar(Matricula*);
+        void setCntrServicoProjeto(IServicoProjeto*);
+};
+
+void inline CntrApresentacaoProjeto::setCntrServicoProjeto(IServicoProjeto* cntrServicoProjeto){
+    this->cntrServicoProjeto = cntrServicoProjeto;
+}
+
 class CntrServicoAutenticacao:public IServicoAutenticacao{
     public:
         bool autenticar(Matricula, Senha);

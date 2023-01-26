@@ -95,7 +95,7 @@
 	"Entidades.h"
 	<map>
 
-1674566429 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Controladoras.h
+1674568170 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Controladoras.h
 	"Interfaces.h"
 	"curses.h"
 	<stdexcept>
@@ -107,11 +107,11 @@
 	<wchar.h>
 	<stdbool.h>
 
-1674492990 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Builders.h
+1674568461 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Builders.h
 	"Interfaces.h"
 	"Controladoras.h"
 
-1674492990 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Builders.cpp
+1674568376 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Builders.cpp
 	"Builders.h"
 
 1674492990 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Comandos.cpp
@@ -123,7 +123,7 @@
 	<stdexcept>
 	<cstdlib>
 
-1674566385 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Telas.h
+1674568580 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Telas.h
 	"Entidades.h"
 	<string.h>
 	<stdlib.h>
@@ -134,7 +134,7 @@
 	"Containers.h"
 	"Telas.h"
 
-1674566880 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Controladoras.cpp
+1674691434 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Controladoras.cpp
 	"Controladoras.h"
 	"Comandos.h"
 
@@ -146,6 +146,6 @@
 1670261729 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Entidades.cpp
 	"Entidades.h"
 
-1674567041 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Telas.cpp
+1674691479 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Telas.cpp
 	"Telas.h"
 

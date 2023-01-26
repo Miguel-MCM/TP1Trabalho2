@@ -131,6 +131,25 @@ void CntrApresentacaoUsuario::cadastrar() {
     }
 }
 
+void CntrApresentacaoProjeto::executar(Matricula* matricula) {
+
+    TelaMenuProjeto telaMenuProjeto;
+    char opcao;
+    while(true) {
+        opcao = telaMenuProjeto.apresentar();
+        
+        switch(opcao) {
+            case '4':
+                return
+            default:
+                Tela
+        }
+    }
+
+    TelaMensagem tela;
+    tela.apresentar("Work in Progress...");
+}
+
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {
 
     Usuario usuario;

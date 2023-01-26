@@ -51,10 +51,6 @@ void CntrApresentacaoControle::menuAutenticado(Matricula *matricula) {
             telaMensagem.apresentar("Opcao Invalida");
         }
     }
-
-
-
-
 }
 
 bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){
@@ -133,6 +129,26 @@ void CntrApresentacaoUsuario::cadastrar() {
     else {
         telaMensagem.apresentar("Falha no cadastro.");
     }
+}
+
+void CntrApresentacaoProjeto::executar(Matricula* matricula) {
+
+    TelaMenuProjeto telaMenuProjeto;
+    char opcao;
+    while(true) {
+        opcao = telaMenuProjeto.apresentar();
+
+        switch(opcao) {
+            case '9':
+                return;
+            default:
+                TelaMensagem telaMensagem;
+                telaMensagem.apresentar("Opcao invalida.");
+        }
+    }
+
+    TelaMensagem tela;
+    tela.apresentar("Work in Progress...");
 }
 
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {

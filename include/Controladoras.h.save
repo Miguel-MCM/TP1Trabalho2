@@ -14,7 +14,7 @@ class CntrApresentacaoControle{
         IApresentacaoAutenticacao* cntrApresentacaoAutenticacao;
         IApresentacaoUsuario* cntrApresentacaoUsuario;
         IApresentacaoProjeto* cntrApresentacaoProjeto;
-        void menuAutenticado(Matricula&);
+        void menuAutenticado(Matricula*);
 
     public:
         void executar();
@@ -32,7 +32,7 @@ inline void CntrApresentacaoControle::setCntrApresentacaoUsuario(IApresentacaoUs
 }
 
 inline void CntrApresentacaoControle::setCntrlApresentacaoProjeto(IApresentacaoProjeto* cntr){
-    cntrApresentacaoUsuario = cntr;
+    cntrApresentacaoProjeto = cntr;
 }
 
 
@@ -59,6 +59,18 @@ public:
 
 void inline CntrApresentacaoUsuario::setCntrServicoUsuario(IServicoUsuario* cntrServicoUsuario){
     this->cntrServicoUsuario = cntrServicoUsuario;
+}
+
+class CntrApresentacaoProjeto:public IApresentacaoProjeto {
+    private:
+        IServicoProjeto* cntrServicoProjeto;
+    public:
+        void executar(Matricula*);
+        void setCntrServicoProjeto(IServicoProjeto*);
+}
+
+void inline CntrApresentacaoProjeto::setCntrServicoProjeto(IServicoProjeto* cntrServicoProjeto){
+    this->cntrServicoProjeto =
 }
 
 class CntrServicoAutenticacao:public IServicoAutenticacao{
