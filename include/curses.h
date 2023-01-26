@@ -1,14 +1,12 @@
 /*----------------------------------------------------------------------*
  *                              PDCurses                                *
  *----------------------------------------------------------------------*/
-
+#ifdef WIN32
 #ifndef __PDCURSES__
 #define __PDCURSES__ 1
 
 /*man-start**************************************************************
-
 Define before inclusion (only those needed):
-
     XCURSES         True if compiling for X11.
     PDC_RGB         True if you want to use RGB color definitions
                     (Red = 1, Green = 2, Blue = 4) instead of BGR.
@@ -16,15 +14,12 @@ Define before inclusion (only those needed):
     PDC_DLL_BUILD   True if building a Windows DLL.
     PDC_NCMOUSE     Use the ncurses mouse API instead
                     of PDCurses' traditional mouse API.
-
 Defined by this header:
-
     PDCURSES        Enables access to PDCurses-only routines.
     PDC_BUILD       Defines API build version.
     PDC_VER_MAJOR   Major version number
     PDC_VER_MINOR   Minor version number
     PDC_VERDOT      Version string
-
 **man-end****************************************************************/
 
 #define PDCURSES        1
@@ -395,22 +390,17 @@ PDCEX  chtype       acs_map[];    /* alternate character set map */
 PDCEX  char         ttytype[];    /* terminal name/description */
 
 /*man-start**************************************************************
-
 Text Attributes
 ===============
-
 PDCurses uses a 32-bit integer for its chtype:
-
     +--------------------------------------------------------------------+
     |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|..| 2| 1| 0|
     +--------------------------------------------------------------------+
           color pair        |     modifiers         |   character eg 'a'
-
 There are 256 color pairs (8 bits), 8 bits for modifiers, and 16 bits
 for character data. The modifiers are bold, underline, right-line,
 left-line, italic, reverse and blink, plus the alternate character set
 indicator.
-
 **man-end****************************************************************/
 
 /*** Video attribute macros ***/
@@ -1404,3 +1394,4 @@ PDCEX  int     wunderscore(WINDOW *);
 #endif
 
 #endif  /* __PDCURSES__ */
+#endif /* WIN32 */

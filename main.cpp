@@ -1,10 +1,3 @@
-#ifdef WIN32
-    #include "curses.h"
-#else
-    #include <ncurses.h>
-
-#endif // WIN32
-
 #include <string.h>
 #include <stdexcept>
 

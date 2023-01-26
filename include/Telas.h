@@ -10,6 +10,13 @@
 
 #include "Entidades.h"
 #include <string.h>
+#include <stdlib.h>
+#ifdef WIN32
+    #include "curses.h"
+#else
+    #include <ncurses.h>
+
+#endif // WIN32
 
 class TelaAutenticacao {
 public:

@@ -52,13 +52,13 @@ void CntrApresentacaoControle::executar(){
 bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){
 
     bool resultado;
-    Senha senha;
+    Senha* senha = new Senha();
 
     while(true) {
 
         try {
             TelaAutenticacao telaAutenticacao;
-            telaAutenticacao.apresentar(matricula, &senha);
+            telaAutenticacao.apresentar(matricula, senha);
             break;
         }
         catch (const invalid_argument &exp) {
@@ -67,7 +67,7 @@ bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){
         }
     }
 
-    resultado = cntrServicoAutenticacao->autenticar(*matricula,senha);
+    resultado = cntrServicoAutenticacao->autenticar(*matricula,*senha);
 
     return resultado;
 };
@@ -101,23 +101,22 @@ void CntrApresentacaoUsuario::executar(Matricula* matricula){
 void CntrApresentacaoUsuario::cadastrar() {
 
     bool resultado;
-    Usuario usuario;
+    Usuario* usuario = new Usuario();
+    TelaMensagem telaMensagem;
+    TelaCadastro telaCadastro;
 
     while(true) {
 
         try {
-            TelaCadastro telaCadastro;
-            telaCadastro.apresentar(&usuario);
+            telaCadastro.apresentar(usuario);
             break;
         }
         catch (const invalid_argument &exp) {
-            TelaMensagem telaMensagem;
             telaMensagem.apresentar("Dado em formato incorreto.");
         }
     }
 
-    resultado = cntrServicoUsuario->cadastrar(usuario);
-    TelaMensagem telaMensagem;
+    resultado = cntrServicoUsuario->cadastrar(*usuario);
 
     if (resultado) {
         telaMensagem.apresentar("Cadastro realizado com sucesso.");
@@ -129,15 +128,13 @@ void CntrApresentacaoUsuario::cadastrar() {
 
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {
 
-    Usuario usuario;
-    usuario.setMatricula(matricula);
-    usuario.setSenha(senha);
+    Usuario* usuario = new Usuario();
+    usuario->setMatricula(matricula);
+    usuario->setSenha(senha);
 
-    ContainerUsuario* container;
-    container = ContainerUsuario::getInstancia();
+    ContainerUsuario* container = ContainerUsuario::getInstancia();
 
-    return container->pesquisar(&usuario);
-    //este usuario é o objeto no conteiner
+    return container->pesquisar(usuario);
 }
 
 bool CntrServicoUsuario::cadastrar(Usuario usuario) {
