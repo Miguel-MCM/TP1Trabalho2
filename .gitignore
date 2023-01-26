@@ -1,7 +1,8 @@
-bin
-ncurses-6.4
-obj
+bin/
+ncurses-6.4/
+obj/
 pdcurses.a
 TP1Trabalho2.cbp
 TP1Trabalho2.depend
 TP1Trabalho2.layout
+TP1Trabalho2.layout.save

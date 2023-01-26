@@ -14,6 +14,8 @@ ContainerUsuario* ContainerUsuario::getInstancia() {
 
 bool ContainerUsuario::incluir(Usuario usuario){
     bool resultado = container.insert(make_pair(usuario.getMatricula().getValor(), usuario)).second;
+    TelaMensagem tela;
+    tela.apresentar();
     return resultado;
 }
 
