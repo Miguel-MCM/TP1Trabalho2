@@ -37,6 +37,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="C:/Users/Anita Oliveira/Desktop/Trabalho 2/TP1Trabalho2/pdcurses.a" />
+		</Linker>
 		<Unit filename="include/Builders.h" />
 		<Unit filename="include/Comandos.h" />
 		<Unit filename="include/Containers.h" />

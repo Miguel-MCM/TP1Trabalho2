@@ -2,21 +2,22 @@
 
 void ComandoIAUsuarioDescadastrar::executar(IServicoUsuario* cntrServicoUsuario, Matricula* matricula){
 
+    TelaMensagem telaMensagem;
     bool resultado;
-    string input;
+    char input;
 
     while(true) {
 
         TelaDescadastro telaDescadastro;
         input = telaDescadastro.apresentar();
 
-        if (input == "S") {
+        if (input == 'S' || input == 's') {
             resultado = cntrServicoUsuario->descadastrar(*matricula);
             break;
         }
-        else if (input == "N") {
+        else if (input == 'N' || input == 'n') {
             resultado = false;
-            break;
+            return;
         }
         else {
             TelaMensagem telaMensagem;
@@ -24,7 +25,6 @@ void ComandoIAUsuarioDescadastrar::executar(IServicoUsuario* cntrServicoUsuario,
         }
     }
 
-    TelaMensagem telaMensagem;
     if(resultado){
         telaMensagem.apresentar("Sucesso na execucao da operacao.");
     }

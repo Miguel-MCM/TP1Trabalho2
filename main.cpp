@@ -18,7 +18,7 @@ int main()
 {
     // Instanciar Builder.
 
-    BuilderSistema *builder;
+    BuilderSistema* builder;
     builder = new BuilderSistema();
 
     // Construir (build) sistema.
@@ -36,37 +36,3 @@ int main()
 
     return 0;
 }
-
-/*
-    Matricula matricula;
-    Matricula* ptrMatricula = &matricula;
-    bool autenticou;
-
-    // Iniciar curses.
-    // Solicitar serviço apresentacao.
-    // Finalizar curses.
-
-    initscr();
-    cntrApresentacaoUsuario->cadastrar();
-    endwin();
-    initscr();
-    autenticou = cntrApresentacaoAutenticacao->autenticar(ptrMatricula);
-    endwin();
-    initscr();
-    cntrApresentacaoUsuario->executar(ptrMatricula);
-    endwin();
-    if (autenticou) {
-        initscr();
-        cntrApresentacaoUsuario->executar(ptrMatricula);
-        endwin();
-    }
-    else {
-        initscr();
-        cntrApresentacaoUsuario->cadastrar();
-        endwin();
-    }
-
-
-    return 0;
-}
-*/

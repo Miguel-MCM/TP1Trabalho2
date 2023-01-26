@@ -17,10 +17,11 @@
 1670261729 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Entidades.h
 	"Dominios.h"
 
-1674484852 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\main.cpp
+1674598476 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\main.cpp
+	"curses.h"
+	<ncurses.h>
 	<string.h>
 	<stdexcept>
-	"curses.h"
 	"Interfaces.h"
 	"Controladoras.h"
 	"Builders.h"
@@ -46,40 +47,42 @@
 	<wchar.h>
 	<stdbool.h>
 
-1674490316 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\telas.cpp
+1674605329 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\telas.cpp
 	"Telas.h"
+	<iostream>
 
-1674490316 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\telas.h
+1674599893 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\telas.h
+	"curses.h"
+	<ncurses.h>
 	"Entidades.h"
 	<string.h>
-	<stdlib.h>
-	"curses.h"
 
-1674492191 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\controladoras.cpp
+1674664826 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\controladoras.cpp
 	"Controladoras.h"
 	"Comandos.h"
 
-1674485041 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\controladoras.h
+1674664479 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\controladoras.h
 	"Interfaces.h"
 	"curses.h"
 	<stdexcept>
 
-1674343598 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\interfaces.h
+1674684465 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\interfaces.h
 	"Entidades.h"
 	"Containers.h"
 
-1674491683 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\containers.cpp
+1674509254 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\containers.cpp
 	"Containers.h"
 	"Telas.h"
+	<iostream>
 
-1674348512 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\containers.h
+1674598476 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\containers.h
 	"Entidades.h"
 	<map>
 
-1674349601 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\comandos.cpp
+1674664479 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\comandos.cpp
 	"Comandos.h"
 
-1674348512 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\comandos.h
+1674664479 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\comandos.h
 	"Interfaces.h"
 	"Telas.h"
 	<stdexcept>
@@ -91,6 +94,6 @@
 	"Interfaces.h"
 	"Controladoras.h"
 
-1674485132 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\builders.cpp
+1674598476 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\builders.cpp
 	"Builders.h"
 

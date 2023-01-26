@@ -7,11 +7,6 @@
 
 using namespace std;
 
-//----------------------------------------------------------------------------------------
-// Declaração de classe container.
-//
-// Declaração adota padrão de projeto Singleton.
-
 class ContainerUsuario{
     private:
         map<string, Usuario> container;                 // Mapa de usuários.

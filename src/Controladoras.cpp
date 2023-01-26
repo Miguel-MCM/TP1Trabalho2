@@ -3,28 +3,47 @@
 
 void CntrApresentacaoControle::executar(){
 
+    TelaControle telaControle;
+    TelaMensagem telaMensagem;
+    char opcaoControle;
+    char opcaoMenu;
+
     while(true){
 
-        TelaControle telaControle;
-        char opcao;
-        opcao = telaControle.apresentar();
+        opcaoControle = telaControle.apresentar();
 
-        if(opcao=='1') {
+        if(opcaoControle == '1') {
             if (cntrApresentacaoAutenticacao->autenticar(&matricula)) {
-                cntrApresentacaoUsuario->executar(&matricula);
-                break;
+                TelaMenu telaMenu;
+                cntrApresentacaoUsuario->setStatusCadastro(true);
+                while(cntrApresentacaoUsuario->getStatusCadastro()) {
+                    opcaoMenu = telaMenu.apresentar();
+                    if (opcaoMenu == '1') {
+                        cntrApresentacaoUsuario->executar(&matricula);
+                    }
+                    else if (opcaoMenu == '2') {
+                        //cntrApresentacaoProjeto/Tarefa
+                    }
+                    else if (opcaoMenu == '3') {
+                        break;
+                    }
+                    else {
+                        telaMensagem.apresentar("Dado em formato incorreto");
+                    }
+                }
             }
-            else{
-                TelaMensagem telaMensagem;
-                telaMensagem.apresentar("Falha na autenticacao.");
+            else {
+                telaMensagem.apresentar("Falha na autenticacao");
             }
         }
-        else if (opcao == '2'){
-                cntrApresentacaoUsuario->cadastrar();
+        else if (opcaoControle == '2') {
+            cntrApresentacaoUsuario->cadastrar();
+        }
+        else if (opcaoControle == '3') {
+            return;
         }
         else {
-            TelaMensagem telaMensagem;
-            telaMensagem.apresentar("Dado em formato incorreto");
+            telaMensagem.apresentar("Opcao invalida.");
         }
     }
     return;
@@ -34,13 +53,12 @@ bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){
 
     bool resultado;
     Senha senha;
-    Senha* ptrSenha = &senha;
 
     while(true) {
 
         try {
             TelaAutenticacao telaAutenticacao;
-            telaAutenticacao.apresentar(matricula, ptrSenha);
+            telaAutenticacao.apresentar(matricula, &senha);
             break;
         }
         catch (const invalid_argument &exp) {
@@ -55,24 +73,26 @@ bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){
 };
 
 void CntrApresentacaoUsuario::executar(Matricula* matricula){
+
     ComandoIAUsuario* comando;
-    int opcao;
     TelaMenuUsuario telaMenuUsuario;
-    opcao = telaMenuUsuario.apresentar();
-    noecho();
+    char opcao = telaMenuUsuario.apresentar();
+
     switch(opcao){
-        case 1: comando = new ComandoIAUsuarioConsultar();
-                comando->executar(cntrServicoUsuario,matricula);
-                delete comando;
-                return;
-        case 2: comando = new ComandoIAUsuarioDescadastrar();
-                comando->executar(cntrServicoUsuario,matricula);
-                delete comando;
-                return;
-        case 3: comando = new ComandoIAUsuarioEditar();
-                comando->executar(cntrServicoUsuario,matricula);
-                delete comando;
-                return;
+        case '1': comando = new ComandoIAUsuarioConsultar();
+                  comando->executar(cntrServicoUsuario,matricula);
+                  delete comando;
+                  return;
+        case '2': comando = new ComandoIAUsuarioDescadastrar();
+                  comando->executar(cntrServicoUsuario,matricula);
+                  cadastro = false;
+                  delete comando;
+                  return;
+        case '3': comando = new ComandoIAUsuarioEditar();
+                  comando->executar(cntrServicoUsuario,matricula);
+                  delete comando;
+                  return;
+        case '4': return;
     }
     TelaMensagem telaMensagem;
     telaMensagem.apresentar("Opcao invalida.");
@@ -82,13 +102,12 @@ void CntrApresentacaoUsuario::cadastrar() {
 
     bool resultado;
     Usuario usuario;
-    Usuario* ptr = &usuario;
 
     while(true) {
 
         try {
             TelaCadastro telaCadastro;
-            telaCadastro.apresentar(ptr);
+            telaCadastro.apresentar(&usuario);
             break;
         }
         catch (const invalid_argument &exp) {
@@ -111,22 +130,21 @@ void CntrApresentacaoUsuario::cadastrar() {
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {
 
     Usuario usuario;
-    Usuario* ptr = &usuario;
     usuario.setMatricula(matricula);
+    usuario.setSenha(senha);
 
     ContainerUsuario* container;
     container = ContainerUsuario::getInstancia();
 
-    return container->pesquisar(ptr);
+    return container->pesquisar(&usuario);
+    //este usuario é o objeto no conteiner
 }
 
 bool CntrServicoUsuario::cadastrar(Usuario usuario) {
 
-    // Instancia container de usuários.
     ContainerUsuario* container;
     container = ContainerUsuario::getInstancia();
 
-    // Solicitar cadastramento de usuário e retornar resultado da solicitação de serviço.
     return container->incluir(usuario);
 }
 
@@ -134,6 +152,7 @@ bool CntrServicoUsuario::descadastrar(Matricula matricula) {
 
     ContainerUsuario* container;
     container = ContainerUsuario::getInstancia();
+
     return container->remover(matricula);
 }
 
@@ -141,6 +160,7 @@ bool CntrServicoUsuario::editar(Usuario usuario) {
 
     ContainerUsuario* container;
     container = ContainerUsuario::getInstancia();
+
     return container->atualizar(usuario);
 }
 
@@ -148,5 +168,6 @@ bool CntrServicoUsuario::consultar(Usuario* usuario) {
 
     ContainerUsuario* container;
     container = ContainerUsuario::getInstancia();
+
     return container->pesquisar(usuario);
 }
