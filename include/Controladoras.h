@@ -51,14 +51,25 @@ void inline CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAut
 class CntrApresentacaoUsuario:public IApresentacaoUsuario {
 private:
     IServicoUsuario* cntrServicoUsuario;
+    bool cadastro;
 public:
     void executar(Matricula*);
     void cadastrar();
     void setCntrServicoUsuario(IServicoUsuario*);
+    bool getStatusCadastro();
+    void setStatusCadastro(bool);
 };
 
 void inline CntrApresentacaoUsuario::setCntrServicoUsuario(IServicoUsuario* cntrServicoUsuario){
     this->cntrServicoUsuario = cntrServicoUsuario;
+}
+
+bool inline CntrApresentacaoUsuario::getStatusCadastro() {
+    return cadastro;
+}
+
+void inline CntrApresentacaoUsuario::setStatusCadastro(bool status) {
+    cadastro = status;
 }
 
 class CntrApresentacaoProjeto:public IApresentacaoProjeto {

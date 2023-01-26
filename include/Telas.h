@@ -1,6 +1,13 @@
 #ifndef TELAS_H_INCLUDED
 #define TELAS_H_INCLUDED
 
+#ifdef WIN32
+    #include "curses.h"
+#else
+    #include <ncurses.h>
+
+#endif // WIN32
+
 #include "Entidades.h"
 #include <string.h>
 #include <stdlib.h>
@@ -41,7 +48,7 @@ public:
     char apresentar();
 };
 
-class TelaMenuAutenticado {
+class TelaMenu {
 public:
     char apresentar();
 };

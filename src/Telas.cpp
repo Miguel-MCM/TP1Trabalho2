@@ -1,4 +1,5 @@
 #include "Telas.h"
+#include <iostream>
 
 void TelaAutenticacao::apresentar(Matricula *matricula, Senha *senha) {
 
@@ -47,6 +48,7 @@ void TelaCadastro::apresentar(Usuario *usuario) {
 
     initscr();
     getmaxyx(stdscr,linha,coluna);
+
     mvprintw(linha/3,(coluna-strlen(campo1))/2,"%s",campo1);
     getstr(dado1);
     mvprintw(linha/3 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
@@ -72,20 +74,23 @@ void TelaCadastro::apresentar(Usuario *usuario) {
 char TelaMenuUsuario::apresentar() {
 
     char campo1[]="Gerenciamento de Usuario";
-    char campo2[]="1. Consultar";
-    char campo3[]="2. Descadastrar";
-    char campo4[]="3. Editar";
-    char campo5[]="Selecione uma opcao: ";
+    char campo2[]="1 - Consultar";
+    char campo3[]="2 - Descadastrar";
+    char campo4[]="3 - Editar";
+    char campo5[]="4 - Retornar a Tela Inicial";
+    char campo6[]="Selecione uma opcao: ";
     char dado1[10];
     int linha,coluna;
 
     initscr();
     getmaxyx(stdscr,linha,coluna);
-    mvprintw(linha/4,(coluna-strlen(campo1))/2,"%s",campo1);
-    mvprintw(linha/4 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
-    mvprintw(linha/4 + 4,(coluna-strlen(campo3))/2,"%s",campo3);
-    mvprintw(linha/4 + 6,(coluna-strlen(campo3))/2,"%s",campo4);
-    mvprintw(linha/4 + 8,(coluna-strlen(campo3))/2,"%s",campo5);
+
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    mvprintw(linha/2,(coluna-strlen(campo3))/2,"%s",campo3);
+    mvprintw(linha/2 + 2,(coluna-strlen(campo4))/2,"%s",campo4);
+    mvprintw(linha/2 + 4,(coluna-strlen(campo5))/2,"%s",campo5);
+    mvprintw(linha/2 + 6,(coluna-strlen(campo6))/2,"%s",campo6);
     getstr(dado1);
     clear();
     endwin();
@@ -111,44 +116,27 @@ char TelaDescadastro::apresentar() {
 
 char TelaControle::apresentar() {
 
-    char campo1[]="Selecione um dos servicos : ";
+    char campo1[]="Seja bem-vindo";
     char campo2[]="1 - Acessar sistema.";
     char campo3[]="2 - Cadastrar usuario.";
+    char campo4[]="3 - Encerrar execucao.";
+    char campo5[]="Selecione uma opcao: ";
     char dado1[10];
     int linha,coluna;
 
     initscr();
     getmaxyx(stdscr,linha,coluna);
-    mvprintw(linha/4,(coluna-strlen(campo1))/2,"%s",campo1);
-    mvprintw(linha/4 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
-    mvprintw(linha/4 + 4,(coluna-strlen(campo3))/2,"%s",campo3);
+
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    mvprintw(linha/2,(coluna-strlen(campo3))/2,"%s",campo3);
+    mvprintw(linha/2 + 2,(coluna-strlen(campo4))/2,"%s",campo4);
+    mvprintw(linha/2 + 4,(coluna-strlen(campo5))/2,"%s",campo5);
     getstr(dado1);
     clear();
     endwin();
 
     return dado1[0];
-}
-
-char TelaMenuAutenticado::apresentar() {
-    char campo1[]="Selecione uma das opções : ";
-    char campo2[]="1 - Serviços de Usuário";
-    char campo3[]="2 - Serviços de Projetos";
-    char campo4[]="3 - Sair";
-    char dado1[1];
-    int linha,coluna;
-
-    initscr();
-    getmaxyx(stdscr,linha,coluna);
-    mvprintw(linha/4,(coluna-strlen(campo1))/2,"%s",campo1);
-    mvprintw(linha/4 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
-    mvprintw(linha/4 + 4,(coluna-strlen(campo3))/2,"%s",campo3);
-    mvprintw(linha/4 + 6,(coluna-strlen(campo4))/2,"%s",campo4);
-    getstr(dado1);
-    clear();
-    endwin();
-
-    return dado1[0];
-
 }
 
 char TelaMenuProjeto::apresentar() {
@@ -172,6 +160,7 @@ char TelaMenuProjeto::apresentar() {
 
     initscr();
     getmaxyx(stdscr,linha,coluna);
+
     mvprintw(linha/4,(coluna-strlen(campo1))/4,"%s",campo1);
     mvprintw(linha/4 + 2,(coluna-strlen(campo2))/4,"%s",campo2);
     mvprintw(linha/4 + 4,(coluna-strlen(campo3))/4,"%s",campo3);
@@ -186,6 +175,32 @@ char TelaMenuProjeto::apresentar() {
 
     mvprintw(linha/4 + 10,(coluna-strlen(campo11))/2,"%s",campo11);
     mvprintw(linha/4 + 12,(coluna-strlen(campo12))/2,"%s",campo12);
+
+    getstr(dado1);
+    clear();
+    endwin();
+
+    return dado1[0];
+}
+
+char TelaMenu::apresentar(){
+
+    char campo1[]="Tela inicial: ";
+    char campo2[]="1 - Servicos de Usuario";
+    char campo3[]="2 - Servicos de Projeto e Tarefa";
+    char campo4[]="3 - Sair da conta.";
+    char campo5[]="Selecione uma opcao: ";
+    char dado1[10];
+    int linha,coluna;
+
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    mvprintw(linha/2,(coluna-strlen(campo3))/2,"%s",campo3);
+    mvprintw(linha/2 + 2,(coluna-strlen(campo4))/2,"%s",campo4);
+    mvprintw(linha/2 + 4,(coluna-strlen(campo5))/2,"%s",campo5);
     getstr(dado1);
     clear();
     endwin();

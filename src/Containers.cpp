@@ -1,6 +1,8 @@
 #include "Containers.h"
 #include "Telas.h"
 
+#include <iostream>
+
 ContainerUsuario* ContainerUsuario::instancia = nullptr;
 
 //------------------------------------------------------------------------------------
@@ -13,8 +15,7 @@ ContainerUsuario* ContainerUsuario::getInstancia() {
 }
 
 bool ContainerUsuario::incluir(Usuario usuario){
-    bool resultado = container.insert(make_pair(usuario.getMatricula().getValor(), usuario)).second;
-    return resultado;
+    return container.insert(make_pair(usuario.getMatricula().getValor(), usuario)).second;
 }
 
 bool ContainerUsuario::remover(Matricula matricula){
@@ -29,8 +30,10 @@ bool ContainerUsuario::remover(Matricula matricula){
 bool ContainerUsuario::pesquisar(Usuario* usuario){
     map<string, Usuario>::iterator it = container.find(usuario->getMatricula().getValor());
     if(it != container.end()){
-        *usuario = it->second;
-        return true;
+            if(it->second.getSenha().getValor() == usuario->getSenha().getValor()){
+               *usuario = it->second;
+               return true;
+            }
     }
     return false;
 }
