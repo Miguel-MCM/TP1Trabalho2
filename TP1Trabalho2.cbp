@@ -18,6 +18,7 @@
 				</Compiler>
 				<Linker>
 					<Add library="ncurses-6.4/lib/libncurses.a" />
+					<Add library="../../Trabalho TESTE/Trabalho/pdcurses.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -32,6 +33,7 @@
 				<Linker>
 					<Add option="-s" />
 					<Add library="ncurses-6.4/lib/libncurses.a" />
+					<Add library="../../Trabalho TESTE/Trabalho/pdcurses.a" />
 				</Linker>
 			</Target>
 		</Build>
@@ -40,6 +42,7 @@
 		</Compiler>
 		<Linker>
 			<Add library="ncurses-6.4/lib/libncurses.a" />
+			<Add library="../../Trabalho TESTE/Trabalho/pdcurses.a" />
 		</Linker>
 		<Unit filename="include/Builders.h" />
 		<Unit filename="include/Comandos.h" />

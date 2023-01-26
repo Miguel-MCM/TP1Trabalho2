@@ -20,6 +20,10 @@ class IApresentacaoUsuario {
         virtual void executar(Matricula*) = 0;
         virtual void cadastrar() = 0;
         virtual void setCntrServicoUsuario(IServicoUsuario*) = 0;
+
+        virtual bool getStatusCadastro() = 0;
+        virtual void setStatusCadastro(bool) = 0;
+
         virtual ~IApresentacaoUsuario(){}
 };
 
@@ -57,8 +61,5 @@ class IServicoProjeto {
         virtual bool consultarTarefa(Tarefa*) = 0;
         virtual ~IServicoProjeto(){}
 };
-
-
-
 
 #endif // INTERFACES_H_INCLUDED
