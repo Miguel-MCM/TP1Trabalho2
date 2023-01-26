@@ -76,7 +76,7 @@ char TelaMenuUsuario::apresentar() {
     char campo3[]="2. Descadastrar";
     char campo4[]="3. Editar";
     char campo5[]="Selecione uma opcao: ";
-    char dado1[10];
+    char dado1[2];
     int linha,coluna;
 
     initscr();
@@ -114,7 +114,7 @@ char TelaControle::apresentar() {
     char campo1[]="Selecione um dos servicos : ";
     char campo2[]="1 - Acessar sistema.";
     char campo3[]="2 - Cadastrar usuario.";
-    char dado1[10];
+    char dado1[2];
     int linha,coluna;
 
     initscr();
