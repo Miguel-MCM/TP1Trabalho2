@@ -9,7 +9,7 @@ class BuilderSistema {
         CntrApresentacaoControle* cntrApresentacaoControle;
         IApresentacaoAutenticacao* cntrApresentacaoAutenticacao;
         IApresentacaoUsuario* cntrApresentacaoUsuario;
-        IApresentacaoProjeto* cntrApresentacaoProjeto;
+        IApresentacaoProjeto
         IServicoAutenticacao *cntrServicoAutenticacao;
         IServicoUsuario *cntrServicoUsuario;
     public:

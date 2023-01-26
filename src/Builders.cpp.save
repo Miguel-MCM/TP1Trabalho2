@@ -18,7 +18,6 @@ CntrApresentacaoControle* BuilderSistema::construir(){
 
     cntrApresentacaoControle->setCntrApresentacaoAutenticacao(cntrApresentacaoAutenticacao);
     cntrApresentacaoControle->setCntrApresentacaoUsuario(cntrApresentacaoUsuario);
-    cntrApresentacaoControle->setCntrlApresentacaoProjeto(cntrApresentacaoProjeto);
     cntrApresentacaoAutenticacao->setCntrServicoAutenticacao(cntrServicoAutenticacao);
     cntrApresentacaoUsuario->setCntrServicoUsuario(cntrServicoUsuario);
 
@@ -34,3 +33,4 @@ BuilderSistema::~BuilderSistema(){
         delete cntrServicoAutenticacao;
         delete cntrServicoUsuario;
 }
+

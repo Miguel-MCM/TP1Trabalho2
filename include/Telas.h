@@ -53,4 +53,9 @@ public:
     char apresentar();
 };
 
+class TelaMenuProjeto {
+public:
+    char apresentar();
+};
+
 #endif // TELAS_H_INCLUDED

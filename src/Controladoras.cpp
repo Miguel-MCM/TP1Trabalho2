@@ -22,6 +22,7 @@ void CntrApresentacaoControle::executar(){
                         cntrApresentacaoUsuario->executar(&matricula);
                     }
                     else if (opcaoMenu == '2') {
+                        cntrApresentacaoProjeto->executar(&matricula);
                         //cntrApresentacaoProjeto/Tarefa
                     }
                     else if (opcaoMenu == '3') {
@@ -47,6 +48,30 @@ void CntrApresentacaoControle::executar(){
         }
     }
     return;
+}
+
+void CntrApresentacaoControle::menuAutenticado(Matricula *matricula) {
+
+    TelaMenu telaMenu;
+    char opcao;
+
+    while(true) {
+        opcao = telaMenu.apresentar();
+
+        switch(opcao) {
+        case '1':
+            cntrApresentacaoUsuario->executar(matricula);
+            break;
+        case '2':
+            cntrApresentacaoProjeto->executar(matricula);
+            break;
+        case '3':
+            return;
+        default:
+            TelaMensagem telaMensagem;
+            telaMensagem.apresentar("Opcao Invalida");
+        }
+    }
 }
 
 bool CntrApresentacaoAutenticacao::autenticar(Matricula* matricula){
@@ -124,6 +149,26 @@ void CntrApresentacaoUsuario::cadastrar() {
     else {
         telaMensagem.apresentar("Falha no cadastro.");
     }
+}
+
+void CntrApresentacaoProjeto::executar(Matricula* matricula) {
+
+    TelaMenuProjeto telaMenuProjeto;
+    char opcao;
+    while(true) {
+        opcao = telaMenuProjeto.apresentar();
+
+        switch(opcao) {
+            case '9':
+                return;
+            default:
+                TelaMensagem telaMensagem;
+                telaMensagem.apresentar("Opcao invalida.");
+        }
+    }
+
+    TelaMensagem tela;
+    tela.apresentar("Work in Progress...");
 }
 
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {
