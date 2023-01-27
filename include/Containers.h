@@ -20,5 +20,18 @@ class ContainerUsuario{
         bool atualizar(Usuario);
 };
 
+class ContainerProjeto{
+    private:
+        map<string, Projeto> container;                 // Mapa de usuários.
+        static ContainerProjeto *instancia;             // Ponteiro para instância da classe.
+        ContainerProjeto(){};                           // Construtor.
+    public:
+        static  ContainerProjeto* getInstancia();       // Método para instanciar classe.
+        bool incluir(Projeto);                          // Métodos responsáveis por prestar serviços.
+        bool remover(Codigo);
+        bool pesquisar(Projeto*);
+        bool atualizar(Projeto);
+};
+
 #endif // CONTROLADORAS_H_INCLUDED
 
