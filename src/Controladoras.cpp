@@ -166,6 +166,11 @@ void CntrApresentacaoProjeto::executar(Matricula* matricula) {
                 comando->executar(cntrServicoProjeto, matricula);
                 delete comando;
                 break;
+            case '2':
+                comando = new ComandoIAProjetoCadastrarProjeto();
+                comando->executar(cntrServicoProjeto, matricula);
+                delete comando;
+                break;
             case '5':
                 return;
             default:
@@ -223,8 +228,9 @@ bool CntrServicoProjeto::consultarProjeto(Projeto* projeto) {
     return comando.executar(projeto);
 }
 
-bool CntrServicoProjeto::cadastrarProjeto(Projeto){
-    return false;
+bool CntrServicoProjeto::cadastrarProjeto(Projeto projeto){
+    ComandoISProjetoCadastrarProjeto comando;
+    return comando.executar(projeto);
 }
 
 bool CntrServicoProjeto::descadastrarProjeto(Codigo){

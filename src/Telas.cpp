@@ -247,5 +247,39 @@ char TelaConsultaProjeto::apresentar(Projeto* projeto) {
     return dado1[0];
 }
 
+void TelaCadastroProjeto::apresentar(Projeto* projeto) {
+    char campo1[]="Digite o codigo : ";
+    char campo2[]="Digite o nome : ";
+    char campo3[]="Digite a descricao : ";
+    char dado1[80];
+    char dado2[80];
+    char dado3[80];
+    int linha,coluna;
+
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+
+    mvprintw(linha/3,(coluna-strlen(campo1))/2,"%s",campo1);
+    getstr(dado1);
+    mvprintw(linha/3 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    getstr(dado2);
+    mvprintw(linha/3 + 4,(coluna-strlen(campo3))/2,"%s",campo3);
+    getstr(dado3);
+    clear();
+    endwin();
+
+    Codigo codigo;
+    codigo.setValor(dado1);
+    projeto->setCodigo(codigo);
+
+    Texto nome;
+    nome.setValor(dado2);
+    projeto->setNome(nome);
+
+    Texto descricao;
+    descricao.setValor(dado3);
+    projeto->setDescricao(descricao);
+}
+
 //TELA DE DADOS
 //TELA DE EDITAR NOME E SENHA

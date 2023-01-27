@@ -35,11 +35,20 @@ public:
     void executar(IServicoProjeto*, Matricula*);
 };
 
+class ComandoIAProjetoCadastrarProjeto:public ComandoIAProjeto {
+public:
+    void executar(IServicoProjeto*, Matricula*);
+};
+
 class ComandoISProjetoConsultarProjeto {
 public:
     bool executar(Projeto* projeto);
 };
 
+class ComandoISProjetoCadastrarProjeto {
+public:
+    bool executar(Projeto);
+};
 
 
 #endif // COMANDOS_H_INCLUDED

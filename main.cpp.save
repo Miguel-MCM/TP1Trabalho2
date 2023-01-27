@@ -9,21 +9,7 @@ using namespace std;
 
 int main()
 {
-//TEste
-    Projeto prj;
-    Codigo cd;
-    cd.setValor("12345678900");
-    prj.setCodigo(cd);
-    Texto nm;
-    nm.setValor("Testando 123");
-    prj.setDescricao(nm);
-    prj.setNome(nm);
-    Matricula mt;
-    mt.setValor("ABCD1234");
-    prj.SetUsuario(mt);
-    ContainerProjeto* ct = ContainerProjeto::getInstancia();
-    ct->incluir(prj);
-////////////////////////
+
     // Instanciar Builder.
 
     BuilderSistema* builder;

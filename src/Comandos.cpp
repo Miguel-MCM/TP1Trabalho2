@@ -79,7 +79,6 @@ void ComandoIAUsuarioConsultar::executar(IServicoUsuario* cntrServicoUsuario, Ma
 
 void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula* matricula) {
 
-    bool resultado;
     Projeto* projeto = new Projeto();
     Codigo* codigo = new Codigo();
     TelaCodigo telaCodigo;
@@ -117,6 +116,33 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
     delete projeto;
 }
 
+void ComandoIAProjetoCadastrarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula* matricula) {
+
+    bool resultado;
+
+    Projeto projeto;
+    projeto.SetUsuario(*matricula);
+
+    TelaCadastroProjeto telaCadastroProjeto;
+    TelaMensagem telaMensagem;
+    while(true) {
+        try {
+            telaCadastroProjeto.apresentar(&projeto);
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            telaMensagem.apresentar("Dado em formato incorreto.");
+        }
+    }
+
+    if (cntrServicoProjeto->cadastrarProjeto(projeto)) {
+        telaMensagem.apresentar("Projeto cadastrado.");
+    }
+    else {
+        telaMensagem.apresentar("Ocorreu um erro durante o cadastramento");
+    }
+}
+
 // ISProjetos
 
 bool ComandoISProjetoConsultarProjeto::executar(Projeto* projeto) {
@@ -124,5 +150,12 @@ bool ComandoISProjetoConsultarProjeto::executar(Projeto* projeto) {
     container = ContainerProjeto::getInstancia();
 
     return container->pesquisar(projeto);
+}
+
+bool ComandoISProjetoCadastrarProjeto::executar(Projeto projeto) {
+    ContainerProjeto* container;
+    container = ContainerProjeto::getInstancia();
+
+    return container->incluir(projeto);
 }
 
