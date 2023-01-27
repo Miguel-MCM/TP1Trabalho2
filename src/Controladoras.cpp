@@ -101,26 +101,38 @@ void CntrApresentacaoUsuario::executar(Matricula* matricula){
 
     ComandoIAUsuario* comando;
     TelaMenuUsuario telaMenuUsuario;
-    char opcao = telaMenuUsuario.apresentar();
-
-    switch(opcao){
-        case '1': comando = new ComandoIAUsuarioConsultar();
-                  comando->executar(cntrServicoUsuario,matricula);
-                  delete comando;
-                  return;
-        case '2': comando = new ComandoIAUsuarioDescadastrar();
-                  comando->executar(cntrServicoUsuario,matricula);
-                  cadastro = false;
-                  delete comando;
-                  return;
-        case '3': comando = new ComandoIAUsuarioEditar();
-                  comando->executar(cntrServicoUsuario,matricula);
-                  delete comando;
-                  return;
-        case '4': return;
-    }
     TelaMensagem telaMensagem;
-    telaMensagem.apresentar("Opcao invalida.");
+    char opcao;
+    bool notDone = true;
+    while (notDone) {
+        opcao = telaMenuUsuario.apresentar();
+
+        switch(opcao){
+            case '1': {
+                comando = new ComandoIAUsuarioConsultar();
+                comando->executar(cntrServicoUsuario,matricula);
+                delete comando;
+                return;
+            }
+            case '2': {
+                comando = new ComandoIAUsuarioDescadastrar();
+                comando->executar(cntrServicoUsuario,matricula);
+                cadastro = false;
+                delete comando;
+                return;
+            }
+            case '3': {
+                comando = new ComandoIAUsuarioEditar();
+                comando->executar(cntrServicoUsuario,matricula);
+                delete comando;
+                return;
+            }
+            case '4':
+                return;
+            default:
+                telaMensagem.apresentar("Escolha uma opcao valida");
+        }
+    }
 };
 
 void CntrApresentacaoUsuario::cadastrar() {
@@ -173,13 +185,13 @@ void CntrApresentacaoProjeto::executar(Matricula* matricula) {
 
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {
 
-    Usuario* usuario = new Usuario();
-    usuario->setMatricula(matricula);
-    usuario->setSenha(senha);
+    Usuario usuario;
+    usuario.setMatricula(matricula);
+    usuario.setSenha(senha);
 
     ContainerUsuario* container = ContainerUsuario::getInstancia();
 
-    return container->pesquisar(usuario);
+    return container->autenticar(usuario);
 }
 
 bool CntrServicoUsuario::cadastrar(Usuario usuario) {

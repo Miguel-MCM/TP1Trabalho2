@@ -48,29 +48,37 @@ void ComandoIAUsuarioEditar::executar(IServicoUsuario* cntrServicoUsuario, Matri
 
     if(resultado){
          //cout << "Sucesso na execucao da operacao" << endl;
+
     }
     else {
+        TelaMensagem telaMensagem;
         //cout << "Falha na execucao da operacao" << endl;
+        telaMensagem.apresentar("Falha na execucao da operacao");
     }
 }
 
 void ComandoIAUsuarioConsultar::executar(IServicoUsuario* cntrServicoUsuario, Matricula* matricula){
 
     bool resultado;
-    Usuario usuario;
+    Usuario * usuario = new Usuario();
+    usuario->setMatricula(*matricula);
 
     // A seguir, incluir código de interação com o usuário.
 
     // Solicitar serviço.
 
-    resultado = cntrServicoUsuario->editar(usuario);
+    resultado = cntrServicoUsuario->consultar(usuario);
 
     // Criticar resultado e apresentar mensagem correspondente.
 
     if(resultado){
          //cout << "Sucesso na execucao da operacao" << endl;
+        TelaConsultarUsuario telaConsultarUsuario;
+        telaConsultarUsuario.apresentar(*usuario);
     }
     else {
         //cout << "Falha na execucao da operacao" << endl;
+        TelaMensagem telaMensagem;
+        telaMensagem.apresentar("Falha na execucao da operacao");
     }
 }
