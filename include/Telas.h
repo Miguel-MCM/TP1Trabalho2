@@ -58,4 +58,9 @@ public:
     char apresentar();
 };
 
+class TelaCodigo {
+public:
+    void apresentar(Codigo*);
+};
+
 #endif // TELAS_H_INCLUDED

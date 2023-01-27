@@ -92,10 +92,10 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
             telaMensagem.apresentar("Cogido Invalido.");
         }
     }
-    projeto->setCodigo(*codigo);
+    
 
     TelaMensagem tm;
-    tm.apresentar(projeto->getCodigo().getValor());
+    tm.apresentar(codigo->getValor());
 
     delete codigo;
     delete projeto;

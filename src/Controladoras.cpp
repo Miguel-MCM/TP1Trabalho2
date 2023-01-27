@@ -155,20 +155,24 @@ void CntrApresentacaoProjeto::executar(Matricula* matricula) {
 
     TelaMenuProjeto telaMenuProjeto;
     char opcao;
+    ComandoIAProjeto* comando;
+
     while(true) {
         opcao = telaMenuProjeto.apresentar();
 
         switch(opcao) {
-            case '9':
+            case '1':
+                comando = new ComandoIAProjetoConsultarProjeto();
+                comando->executar(cntrServicoProjeto, matricula);
+                delete comando;
+                break;
+            case '5':
                 return;
             default:
                 TelaMensagem telaMensagem;
                 telaMensagem.apresentar("Opcao invalida.");
         }
     }
-
-    TelaMensagem tela;
-    tela.apresentar("Work in Progress...");
 }
 
 bool CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha) {
