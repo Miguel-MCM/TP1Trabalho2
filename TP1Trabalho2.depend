@@ -190,7 +190,7 @@
 	"Entidades.h"
 	<map>
 
-1674795465 /home/thiago/Documents/TP1Trabalho2/include/Controladoras.h
+1674825583 /home/thiago/Documents/TP1Trabalho2/include/Controladoras.h
 	"Interfaces.h"
 	"curses.h"
 	<stdexcept>
@@ -209,7 +209,7 @@
 1674762889 source:/home/thiago/Documents/TP1Trabalho2/src/Builders.cpp
 	"Builders.h"
 
-1674787597 source:/home/thiago/Documents/TP1Trabalho2/src/Comandos.cpp
+1674828522 source:/home/thiago/Documents/TP1Trabalho2/src/Comandos.cpp
 	"Comandos.h"
 
 1674496648 /home/thiago/Documents/TP1Trabalho2/include/Comandos.h
@@ -218,14 +218,14 @@
 	<stdexcept>
 	<cstdlib>
 
-1674777276 /home/thiago/Documents/TP1Trabalho2/include/Telas.h
+1674825711 /home/thiago/Documents/TP1Trabalho2/include/Telas.h
 	"Entidades.h"
 	<string.h>
 	<stdlib.h>
 	"curses.h"
 	<ncurses.h>
 
-1674795101 source:/home/thiago/Documents/TP1Trabalho2/src/Containers.cpp
+1674828248 source:/home/thiago/Documents/TP1Trabalho2/src/Containers.cpp
 	"Containers.h"
 	"Telas.h"
 	<iostream>
@@ -242,7 +242,7 @@
 1674496648 source:/home/thiago/Documents/TP1Trabalho2/src/Entidades.cpp
 	"Entidades.h"
 
-1674791269 source:/home/thiago/Documents/TP1Trabalho2/src/Telas.cpp
+1674827299 source:/home/thiago/Documents/TP1Trabalho2/src/Telas.cpp
 	"Telas.h"
 	<iostream>
 

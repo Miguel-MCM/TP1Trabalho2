@@ -58,6 +58,7 @@ public:
     void setCntrServicoUsuario(IServicoUsuario*);
     bool getStatusCadastro();
     void setStatusCadastro(bool);
+    void editar();
 };
 
 void inline CntrApresentacaoUsuario::setCntrServicoUsuario(IServicoUsuario* cntrServicoUsuario){
