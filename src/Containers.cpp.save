@@ -47,10 +47,10 @@ bool ContainerUsuario::atualizar(Usuario usuario){
     return false;
 }
 
+
+
 ContainerProjeto* ContainerProjeto::instancia = nullptr;
 
-//------------------------------------------------------------------------------------
-// Implementações de métodos de classe container.
 
 ContainerProjeto* ContainerProjeto::getInstancia() {
     if (instancia == nullptr)
@@ -85,7 +85,7 @@ bool ContainerProjeto::pesquisar(Projeto* projeto){
 bool ContainerProjeto::atualizar(Projeto projeto){
     map<string, Projeto>::iterator it = container.find(projeto.getCodigo().getValor());
     if(it != container.end()){
-        if(it->second.getUsuario().getValor() == projeto->getUsuario().getValor()){
+        if(it->second.getUsuario().getValor() == projeto.getUsuario().getValor()){
         it->second = projeto;
         return true;
         }

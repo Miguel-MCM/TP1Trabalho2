@@ -13,6 +13,7 @@ CntrApresentacaoControle* BuilderSistema::construir(){
 
     cntrServicoUsuario = new CntrServicoUsuario();
     cntrServicoAutenticacao = new CntrServicoAutenticacao();
+    cntrServicoProjeto = new CntrServicoProjeto();
 
     // Interligar as controladoras.
 
@@ -21,6 +22,7 @@ CntrApresentacaoControle* BuilderSistema::construir(){
     cntrApresentacaoControle->setCntrlApresentacaoProjeto(cntrApresentacaoProjeto);
     cntrApresentacaoAutenticacao->setCntrServicoAutenticacao(cntrServicoAutenticacao);
     cntrApresentacaoUsuario->setCntrServicoUsuario(cntrServicoUsuario);
+    cntrApresentacaoProjeto->setCntrServicoProjeto(cntrServicoProjeto);
 
     // Retornar referência para instância de CntrApresentacaoControle.
 
@@ -31,6 +33,8 @@ BuilderSistema::~BuilderSistema(){
         delete cntrApresentacaoControle;
         delete cntrApresentacaoAutenticacao;
         delete cntrApresentacaoUsuario;
+        delete cntrApresentacaoProjeto;
         delete cntrServicoAutenticacao;
         delete cntrServicoUsuario;
+        delete cntrServicoProjeto;
 }

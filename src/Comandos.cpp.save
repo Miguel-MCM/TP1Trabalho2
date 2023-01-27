@@ -75,6 +75,8 @@ void ComandoIAUsuarioConsultar::executar(IServicoUsuario* cntrServicoUsuario, Ma
     }
 }
 
+//IAProjetos
+
 void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula* matricula) {
 
     bool resultado;
@@ -83,6 +85,7 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
     TelaCodigo telaCodigo;
     TelaMensagem telaMensagem;
 
+    projeto->SetUsuario(*matricula);
     while (true) {
         try {
             telaCodigo.apresentar(codigo);
@@ -92,11 +95,34 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
             telaMensagem.apresentar("Cogido Invalido.");
         }
     }
+    projeto->setCodigo(*codigo);
     
-
-    TelaMensagem tm;
-    tm.apresentar(codigo->getValor());
-
+    if(cntrServicoProjeto->consultarProjeto(projeto)){
+        bool continuar = true;
+        while(continuar) {
+            TelaConsultaProjeto telaConsultaProjeto;
+            switch(telaConsultaProjeto.apresentar(projeto)) {
+                case '3':
+                    continuar = false;
+                    break;
+                default:
+                    telaMensagem.apresentar("Opcao Invalida");
+            }
+        }
+    }
+    else {
+        telaMensagem.apresentar("Projeto Nao Encontrado");
+    }
     delete codigo;
     delete projeto;
 }
+
+// ISProjetos
+
+bool ComandoISProjetoConsultarProjeto::executar(Projeto* projeto) {
+    ContainerProjeto* container;
+    container = ContainerProjeto::getInstancia();
+
+    return container->pesquisar(projeto);
+}
+

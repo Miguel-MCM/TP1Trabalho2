@@ -217,3 +217,38 @@ bool CntrServicoUsuario::consultar(Usuario* usuario) {
 
     return container->pesquisar(usuario);
 }
+
+bool CntrServicoProjeto::consultarProjeto(Projeto* projeto) {
+    ComandoISProjetoConsultarProjeto comando;
+    return comando.executar(projeto);
+}
+
+bool CntrServicoProjeto::cadastrarProjeto(Projeto){
+    return false;
+}
+
+bool CntrServicoProjeto::descadastrarProjeto(Codigo){
+    return false;
+}
+
+bool CntrServicoProjeto::editarProjeto(Projeto){
+    return false;
+}
+
+bool CntrServicoProjeto::cadastrarTarefa(Tarefa){
+    return false;
+}
+
+bool CntrServicoProjeto::descadastrarTarefa(Codigo){
+    return false;
+}
+
+bool CntrServicoProjeto::editarTarefa(Tarefa){
+    return false;
+}
+
+bool CntrServicoProjeto::consultarTarefa(Tarefa*){
+    return false;
+}
+
+

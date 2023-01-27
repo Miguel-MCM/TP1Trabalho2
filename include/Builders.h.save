@@ -9,9 +9,10 @@ class BuilderSistema {
         CntrApresentacaoControle* cntrApresentacaoControle;
         IApresentacaoAutenticacao* cntrApresentacaoAutenticacao;
         IApresentacaoUsuario* cntrApresentacaoUsuario;
-        IApresentacaoProjeto
+        IApresentacaoProjeto* cntrApresentacaoProjeto;
         IServicoAutenticacao *cntrServicoAutenticacao;
         IServicoUsuario *cntrServicoUsuario;
+        IServicoProjeto* cntrServico
     public:
         CntrApresentacaoControle* construir();
         ~BuilderSistema();

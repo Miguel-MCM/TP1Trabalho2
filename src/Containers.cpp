@@ -47,10 +47,10 @@ bool ContainerUsuario::atualizar(Usuario usuario){
     return false;
 }
 
+
+
 ContainerProjeto* ContainerProjeto::instancia = nullptr;
 
-//------------------------------------------------------------------------------------
-// Implementações de métodos de classe container.
 
 ContainerProjeto* ContainerProjeto::getInstancia() {
     if (instancia == nullptr)

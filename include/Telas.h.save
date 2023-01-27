@@ -63,4 +63,6 @@ public:
     void apresentar(Codigo*);
 };
 
+class TelaConsultaProjeto
+
 #endif // TELAS_H_INCLUDED

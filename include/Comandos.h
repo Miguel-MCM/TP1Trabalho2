@@ -35,7 +35,10 @@ public:
     void executar(IServicoProjeto*, Matricula*);
 };
 
-
+class ComandoISProjetoConsultarProjeto {
+public:
+    bool executar(Projeto* projeto);
+};
 
 
 

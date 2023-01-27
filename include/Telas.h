@@ -63,4 +63,9 @@ public:
     void apresentar(Codigo*);
 };
 
+class TelaConsultaProjeto {
+public:
+    char apresentar(Projeto*);
+};
+
 #endif // TELAS_H_INCLUDED
