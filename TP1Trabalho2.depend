@@ -101,7 +101,7 @@
 	"curses.h"
 	<stdexcept>
 
-1674859742 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Telas.h
+1674861604 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Telas.h
 	"curses.h"
 	<ncurses.h>
 	"Entidades.h"
@@ -119,7 +119,7 @@
 
 1674761108 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\containers.cpp
 
-1674860137 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Controladoras.cpp
+1674863070 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Controladoras.cpp
 	"Controladoras.h"
 	"Comandos.h"
 
@@ -139,7 +139,7 @@
 
 1674258915 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\stubs.cpp
 
-1674859384 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Telas.cpp
+1674862794 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Telas.cpp
 	"Telas.h"
 	<iostream>
 
@@ -161,10 +161,10 @@
 	<wchar.h>
 	<stdbool.h>
 
-1674860068 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Comandos.cpp
+1674862469 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Comandos.cpp
 	"Comandos.h"
 
-1674860073 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Comandos.h
+1674863428 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Comandos.h
 	"Interfaces.h"
 	"Telas.h"
 	<stdexcept>

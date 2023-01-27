@@ -281,5 +281,37 @@ void TelaCadastroProjeto::apresentar(Projeto* projeto) {
     projeto->setDescricao(descricao);
 }
 
+void TelaEdicaoProjeto::apresentar(Projeto* projeto) {
+    char campo1[]="Deixe o campo em branco para manter-lo igual.";
+    char campo2[]="Digite o nome : ";
+    char campo3[]="Digite a descricao : ";
+    char dado1[80];
+    char dado2[80];
+    int linha,coluna;
+
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+
+    mvprintw(linha/3 - 2,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/3,(coluna-strlen(campo2))/2,"%s",campo2);
+    getstr(dado1);
+    mvprintw(linha/3 + 2,(coluna-strlen(campo3))/2,"%s",campo3);
+    getstr(dado2);
+    clear();
+    endwin();
+
+    if (dado1[0] != '\0'){
+        Texto nome;
+        nome.setValor(dado1);
+        projeto->setNome(nome);
+    }
+
+    if (dado2[0] != '\0') {
+        Texto descricao;
+        descricao.setValor(dado2);
+        projeto->setDescricao(descricao);
+    }
+}
+
 //TELA DE DADOS
 //TELA DE EDITAR NOME E SENHA

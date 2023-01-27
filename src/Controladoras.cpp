@@ -237,8 +237,9 @@ bool CntrServicoProjeto::descadastrarProjeto(Codigo){
     return false;
 }
 
-bool CntrServicoProjeto::editarProjeto(Projeto){
-    return false;
+bool CntrServicoProjeto::editarProjeto(Projeto projeto){
+    ComandoISProjetoEditarProjeto comando;
+    return comando.executar(projeto);
 }
 
 bool CntrServicoProjeto::cadastrarTarefa(Tarefa){

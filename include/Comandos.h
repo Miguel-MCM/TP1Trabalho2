@@ -40,12 +40,22 @@ public:
     void executar(IServicoProjeto*, Matricula*);
 };
 
+class ComandoIAProjetoEditarProjeto {
+public:
+    void executar(IServicoProjeto*, Projeto);
+};
+
 class ComandoISProjetoConsultarProjeto {
 public:
     bool executar(Projeto* projeto);
 };
 
 class ComandoISProjetoCadastrarProjeto {
+public:
+    bool executar(Projeto);
+};
+
+class ComandoISProjetoEditarProjeto {
 public:
     bool executar(Projeto);
 };

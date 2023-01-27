@@ -228,17 +228,18 @@ bool CntrServicoProjeto::consultarProjeto(Projeto* projeto) {
     return comando.executar(projeto);
 }
 
-bool CntrServicoProjeto::cadastrarProjeto(Projeto proej){
+bool CntrServicoProjeto::cadastrarProjeto(Projeto projeto){
     ComandoISProjetoCadastrarProjeto comando;
-    return comando.executar(pro);
+    return comando.executar(projeto);
 }
 
 bool CntrServicoProjeto::descadastrarProjeto(Codigo){
     return false;
 }
 
-bool CntrServicoProjeto::editarProjeto(Projeto){
-    return false;
+bool CntrServicoProjeto::editarProjeto(Projeto projeto){
+    ComandoISProjetoEditarProjeto comando;
+    return comando.executar(projeto);
 }
 
 bool CntrServicoProjeto::cadastrarTarefa(Tarefa){

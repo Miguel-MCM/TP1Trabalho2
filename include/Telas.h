@@ -73,4 +73,9 @@ public:
     void apresentar(Projeto*);
 };
 
+class TelaEdicaoProjeto {
+public:
+    void apresentar(Projeto*);
+};
+
 #endif // TELAS_H_INCLUDED

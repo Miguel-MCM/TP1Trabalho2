@@ -101,6 +101,10 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
         while(continuar) {
             TelaConsultaProjeto telaConsultaProjeto;
             switch(telaConsultaProjeto.apresentar(projeto)) {
+                case '1':
+                    ComandoIAProjetoEditarProjeto comando;
+                    comando.executar(cntrServicoProjeto, *projeto);
+                    break;
                 case '3':
                     continuar = false;
                     break;
@@ -117,8 +121,6 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
 }
 
 void ComandoIAProjetoCadastrarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula* matricula) {
-
-    bool resultado;
 
     Projeto projeto;
     projeto.SetUsuario(*matricula);
@@ -143,6 +145,29 @@ void ComandoIAProjetoCadastrarProjeto::executar(IServicoProjeto* cntrServicoProj
     }
 }
 
+void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Projeto projeto) {
+
+    TelaEdicaoProjeto telaEdicaoProjeto;
+    TelaMensagem telaMensagem;
+
+    while(true) {
+        try {
+            telaEdicaoProjeto.apresentar(&projeto);
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            telaMensagem.apresentar("Dado em formato incorreto.");
+        }
+    }
+
+    if (cntrServicoProjeto->editarProjeto(projeto)) {
+        telaMensagem.apresentar("Projeto editado com sucesso.");
+    }
+    else {
+        telaMensagem.apresentar("Ocorreu um erro durante a edicao do projeto.");
+    }
+}
+
 // ISProjetos
 
 bool ComandoISProjetoConsultarProjeto::executar(Projeto* projeto) {
@@ -155,7 +180,12 @@ bool ComandoISProjetoConsultarProjeto::executar(Projeto* projeto) {
 bool ComandoISProjetoCadastrarProjeto::executar(Projeto projeto) {
     ContainerProjeto* container;
     container = ContainerProjeto::getInstancia();
-    
-    return c
+
+    return container->incluir(projeto);
+}
+
+bool ComandoISProjetoEditarProjeto::executar(Projeto projeto) {
+    ContainerProjeto* container;
+    container = ContainerProjeto::getInstancia()
 }
 
