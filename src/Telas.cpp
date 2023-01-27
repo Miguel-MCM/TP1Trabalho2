@@ -208,5 +208,25 @@ char TelaMenu::apresentar(){
     return dado1[0];
 }
 
+char TelaConsultarUsuario::apresentar(Usuario usuario) {
+    char campo1[] = "Consultar usuario";
+    char campo2[]="Matricula: ";
+    char campo3[]="Nome: ";
+    char campo4[]="Aperte qualquer tecla para retornar";
+    string matricula = usuario.getMatricula().getValor(), nome = usuario.getNome().getValor();
+
+    int linha,coluna;
+
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2, campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2)-matricula.length())/2, "Matricula: %s", matricula.c_str());
+    mvprintw(linha/2,(coluna-strlen(campo3)-nome.length())/2, "Nome: %s", nome.c_str());
+    mvprintw(linha/2 + 4,(coluna-strlen(campo4))/2, campo4);
+    getch();
+    clear();
+    endwin();
+}
 //TELA DE DADOS
 //TELA DE EDITAR NOME E SENHA
