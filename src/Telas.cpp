@@ -1,6 +1,5 @@
 #include "Telas.h"
 #include <iostream>
-
 void TelaAutenticacao::apresentar(Matricula *matricula, Senha *senha) {
 
     char campo1[]="Digite a matricula : ";
@@ -228,5 +227,34 @@ char TelaConsultarUsuario::apresentar(Usuario usuario) {
     clear();
     endwin();
 }
+
+void TelaEdicaoUsuario::apresentar(Usuario * usuario) {
+    char campo1[]="Edicao do usuario";
+    char campo2[]="Digite o nome: ";
+    char campo3[]="Digite a senha: ";
+    char dado1[80], dado2[80];
+    int linha,coluna;
+    Senha senha;
+    Nome nome;
+
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    getstr(dado1);
+    nome.setValor(dado1);
+
+    mvprintw(linha/2,(coluna-strlen(campo3))/2,"%s",campo3);
+    getstr(dado2);
+    senha.setValor(dado2);
+
+    clear();
+    endwin();
+
+    usuario->setNome(nome);
+    usuario->setSenha(senha);
+}
+
 //TELA DE DADOS
 //TELA DE EDITAR NOME E SENHA

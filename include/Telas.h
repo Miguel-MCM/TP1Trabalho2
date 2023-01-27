@@ -53,7 +53,12 @@ public:
 
 class TelaConsultarUsuario {
 public:
-    char apresentar(Usuario usuario);
+    char apresentar(Usuario);
+};
+
+class TelaEdicaoUsuario {
+public:
+    void apresentar(Usuario *);
 };
 
 #endif // TELAS_H_INCLUDED
