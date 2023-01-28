@@ -18,6 +18,7 @@ class ContainerUsuario{
         bool remover(Matricula);
         bool pesquisar(Usuario*);
         bool atualizar(Usuario);
+        bool autenticar(Usuario);
 };
 
 class ContainerProjeto{

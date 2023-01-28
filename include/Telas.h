@@ -1,13 +1,6 @@
 #ifndef TELAS_H_INCLUDED
 #define TELAS_H_INCLUDED
 
-#ifdef WIN32
-    #include "curses.h"
-#else
-    #include <ncurses.h>
-
-#endif // WIN32
-
 #include "Entidades.h"
 #include <string.h>
 #include <stdlib.h>
@@ -58,6 +51,7 @@ public:
     char apresentar();
 };
 
+<<<<<<< HEAD
 class TelaCodigo {
 public:
     void apresentar(Codigo*);
@@ -76,6 +70,16 @@ public:
 class TelaEdicaoProjeto {
 public:
     void apresentar(Projeto*);
+=======
+class TelaConsultarUsuario {
+public:
+    char apresentar(Usuario);
+};
+
+class TelaEdicaoUsuario {
+public:
+    void apresentar(Usuario *);
+>>>>>>> main
 };
 
 #endif // TELAS_H_INCLUDED

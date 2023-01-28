@@ -17,7 +17,7 @@
 1670261729 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Entidades.cpp
 	"Entidades.h"
 
-1674854552 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Entidades.h
+1674865714 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Entidades.h
 	"Dominios.h"
 	"Entidades.h"
 
@@ -36,11 +36,11 @@
 
 1674258915 D
 
-1674854552 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Containers.h
+1674865751 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Containers.h
 	"Entidades.h"
 	<map>
 
-1674856511 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Controladoras.h
+1674865751 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Controladoras.h
 	"Interfaces.h"
 	"curses.h"
 	<stdexcept>
@@ -70,11 +70,11 @@
 	<wchar.h>
 	<stdbool.h>
 
-1674854974 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Builders.h
+1674865714 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Builders.h
 	"Interfaces.h"
 	"Controladoras.h"
 
-1674855072 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Builders.cpp
+1674865714 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Builders.cpp
 	"Builders.h"
 
 1674568376 h"
@@ -101,9 +101,7 @@
 	"curses.h"
 	<stdexcept>
 
-1674861604 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Telas.h
-	"curses.h"
-	<ncurses.h>
+1674865751 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Telas.h
 	"Entidades.h"
 	<string.h>
 	<stdlib.h>
@@ -112,14 +110,14 @@
 
 1674760954 c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\include\interfaces.h
 
-1674854844 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Containers.cpp
+1674865751 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Containers.cpp
 	"Containers.h"
 	"Telas.h"
 	<iostream>
 
 1674761108 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\containers.cpp
 
-1674864171 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Controladoras.cpp
+1674865751 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Controladoras.cpp
 	"Controladoras.h"
 	"Comandos.h"
 
@@ -139,7 +137,7 @@
 
 1674258915 source:c:\users\anita oliveira\desktop\trabalho 2\tp1trabalho2\src\stubs.cpp
 
-1674862794 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Telas.cpp
+1674865751 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Telas.cpp
 	"Telas.h"
 	<iostream>
 
@@ -161,12 +159,89 @@
 	<wchar.h>
 	<stdbool.h>
 
-1674864160 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Comandos.cpp
+1674865751 source:/home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/src/Comandos.cpp
 	"Comandos.h"
 
-1674864391 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Comandos.h
+1674865714 /home/miguel/Documents/3Semestre/TP1/TP1Trabalho2/include/Comandos.h
 	"Interfaces.h"
 	"Telas.h"
 	<stdexcept>
 	<cstdlib>
+
+1674762489 source:/home/thiago/Documents/TP1Trabalho2/main.cpp
+	<string.h>
+	<stdexcept>
+	"Interfaces.h"
+	"Controladoras.h"
+	"Builders.h"
+
+1674762489 /home/thiago/Documents/TP1Trabalho2/include/Interfaces.h
+	"Entidades.h"
+	"Containers.h"
+
+1674496648 /home/thiago/Documents/TP1Trabalho2/include/Entidades.h
+	"Dominios.h"
+
+1674496648 /home/thiago/Documents/TP1Trabalho2/include/Dominios.h
+	<string>
+
+1674794895 /home/thiago/Documents/TP1Trabalho2/include/Containers.h
+	"Entidades.h"
+	<map>
+
+1674825583 /home/thiago/Documents/TP1Trabalho2/include/Controladoras.h
+	"Interfaces.h"
+	"curses.h"
+	<stdexcept>
+
+1674740335 /home/thiago/Documents/TP1Trabalho2/include/curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+	<stdbool.h>
+
+1674762889 /home/thiago/Documents/TP1Trabalho2/include/Builders.h
+	"Interfaces.h"
+	"Controladoras.h"
+
+1674762889 source:/home/thiago/Documents/TP1Trabalho2/src/Builders.cpp
+	"Builders.h"
+
+1674828522 source:/home/thiago/Documents/TP1Trabalho2/src/Comandos.cpp
+	"Comandos.h"
+
+1674496648 /home/thiago/Documents/TP1Trabalho2/include/Comandos.h
+	"Interfaces.h"
+	"Telas.h"
+	<stdexcept>
+	<cstdlib>
+
+1674825711 /home/thiago/Documents/TP1Trabalho2/include/Telas.h
+	"Entidades.h"
+	<string.h>
+	<stdlib.h>
+	"curses.h"
+	<ncurses.h>
+
+1674828248 source:/home/thiago/Documents/TP1Trabalho2/src/Containers.cpp
+	"Containers.h"
+	"Telas.h"
+	<iostream>
+
+1674795090 source:/home/thiago/Documents/TP1Trabalho2/src/Controladoras.cpp
+	"Controladoras.h"
+	"Comandos.h"
+
+1674496648 source:/home/thiago/Documents/TP1Trabalho2/src/Dominios.cpp
+	"Dominios.h"
+	<stdexcept>
+	<ctype.h>
+
+1674496648 source:/home/thiago/Documents/TP1Trabalho2/src/Entidades.cpp
+	"Entidades.h"
+
+1674827299 source:/home/thiago/Documents/TP1Trabalho2/src/Telas.cpp
+	"Telas.h"
+	<iostream>
 

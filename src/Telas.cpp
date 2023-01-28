@@ -1,6 +1,5 @@
 #include "Telas.h"
 #include <iostream>
-
 void TelaAutenticacao::apresentar(Matricula *matricula, Senha *senha) {
 
     char campo1[]="Digite a matricula : ";
@@ -200,6 +199,7 @@ char TelaMenu::apresentar(){
     return dado1[0];
 }
 
+<<<<<<< HEAD
 void TelaCodigo::apresentar(Codigo* codigo) {
     char campo1[]="Codigo: ";
     char dado1[15];
@@ -225,11 +225,21 @@ char TelaConsultaProjeto::apresentar(Projeto* projeto) {
     char campo4[]="3 - Voltar";
     char campo5[]="Selecione uma opcao: ";
     char dado1[10];
+=======
+char TelaConsultarUsuario::apresentar(Usuario usuario) {
+    char campo1[] = "Consultar usuario";
+    char campo2[]="Matricula: ";
+    char campo3[]="Nome: ";
+    char campo4[]="Aperte qualquer tecla para retornar";
+    string matricula = usuario.getMatricula().getValor(), nome = usuario.getNome().getValor();
+
+>>>>>>> main
     int linha,coluna;
 
     initscr();
     getmaxyx(stdscr,linha,coluna);
 
+<<<<<<< HEAD
     mvprintw(linha/2 - 10,(coluna-strlen(campo1))/2,"%s",campo1);
     mvprintw(linha/2 - 6,coluna/5,"Nome: %s",projeto->getNome().getValor().c_str());
     mvprintw(linha/2 - 4,coluna/5,"Codigo: %s",projeto->getCodigo().getValor().c_str());
@@ -255,10 +265,30 @@ void TelaCadastroProjeto::apresentar(Projeto* projeto) {
     char dado2[80];
     char dado3[80];
     int linha,coluna;
+=======
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2, campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2)-matricula.length())/2, "Matricula: %s", matricula.c_str());
+    mvprintw(linha/2,(coluna-strlen(campo3)-nome.length())/2, "Nome: %s", nome.c_str());
+    mvprintw(linha/2 + 4,(coluna-strlen(campo4))/2, campo4);
+    getch();
+    clear();
+    endwin();
+}
+
+void TelaEdicaoUsuario::apresentar(Usuario * usuario) {
+    char campo1[]="Edicao do usuario";
+    char campo2[]="Digite o nome: ";
+    char campo3[]="Digite a senha: ";
+    char dado1[80], dado2[80];
+    int linha,coluna;
+    Senha senha;
+    Nome nome;
+>>>>>>> main
 
     initscr();
     getmaxyx(stdscr,linha,coluna);
 
+<<<<<<< HEAD
     mvprintw(linha/3,(coluna-strlen(campo1))/2,"%s",campo1);
     getstr(dado1);
     mvprintw(linha/3 + 2,(coluna-strlen(campo2))/2,"%s",campo2);
@@ -311,6 +341,22 @@ void TelaEdicaoProjeto::apresentar(Projeto* projeto) {
         descricao.setValor(dado2);
         projeto->setDescricao(descricao);
     }
+=======
+    mvprintw(linha/2 - 4,(coluna-strlen(campo1))/2,"%s",campo1);
+    mvprintw(linha/2 - 2,(coluna-strlen(campo2))/2,"%s",campo2);
+    getstr(dado1);
+    nome.setValor(dado1);
+
+    mvprintw(linha/2,(coluna-strlen(campo3))/2,"%s",campo3);
+    getstr(dado2);
+    senha.setValor(dado2);
+
+    clear();
+    endwin();
+
+    usuario->setNome(nome);
+    usuario->setSenha(senha);
+>>>>>>> main
 }
 
 //TELA DE DADOS

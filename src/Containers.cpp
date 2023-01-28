@@ -27,13 +27,19 @@ bool ContainerUsuario::remover(Matricula matricula){
     return false;
 }
 
-bool ContainerUsuario::pesquisar(Usuario* usuario){
+bool ContainerUsuario::pesquisar(Usuario * usuario){
     map<string, Usuario>::iterator it = container.find(usuario->getMatricula().getValor());
     if(it != container.end()){
-            if(it->second.getSenha().getValor() == usuario->getSenha().getValor()){
-               *usuario = it->second;
-               return true;
-            }
+        *usuario = it->second;
+        return true;
+    }
+    return false;
+}
+
+bool ContainerUsuario::autenticar(Usuario usuario) {
+    map<string, Usuario>::iterator it = container.find(usuario.getMatricula().getValor());
+    if(it != container.end() && it->second.getSenha().getValor() == usuario.getSenha().getValor()){
+        return true;
     }
     return false;
 }
