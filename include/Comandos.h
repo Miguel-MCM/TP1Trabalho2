@@ -45,11 +45,6 @@ public:
     void executar(IServicoProjeto*, Projeto);
 };
 
-class ComandoIAProjetoDescadastrarProjeto {
-public:
-    bool executar(IServicoProjeto*, Codigo);
-};
-
 class ComandoISProjetoConsultarProjeto {
 public:
     bool executar(Projeto* projeto);
@@ -65,10 +60,6 @@ public:
     bool executar(Projeto);
 };
 
-class ComandoISProjetoDescadastrarProjeto {
-public:
-    bool executar(Codigo);
-};
 
 #endif // COMANDOS_H_INCLUDED
 

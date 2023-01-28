@@ -110,14 +110,9 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
             TelaConsultaProjeto telaConsultaProjeto;
             switch(telaConsultaProjeto.apresentar(projeto)) {
                 case '1':
-                    ComandoIAProjetoEditarProjeto comandoEditar;
-                    comandoEditar.executar(cntrServicoProjeto, *projeto);
+                    ComandoIAProjetoEditarProjeto comando;
+                    comando.executar(cntrServicoProjeto, *projeto);
                     cntrServicoProjeto->consultarProjeto(projeto);
-                    break;
-                case '2':
-                    ComandoIAProjetoDescadastrarProjeto comandoDescadastrar;
-                    if (comandoDescadastrar.executar(cntrServicoProjeto, projeto->getCodigo()))
-                        continuar = false;
                     break;
                 case '3':
                     continuar = false;
@@ -182,38 +177,6 @@ void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto
     }
 }
 
-bool ComandoIAProjetoDescadastrarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Codigo codigo) {
-    TelaMensagem telaMensagem;
-    bool resultado;
-    char input;
-
-    while(true) {
-        TelaDescadastro telaDescadastro;
-        input = telaDescadastro.apresentar();
-
-        if (input == 'S' || input == 's') {
-            resultado = cntrServicoProjeto->descadastrarProjeto(codigo);
-            break;
-        }
-        else if (input == 'N' || input == 'n') {
-            resultado = false;
-            return false;
-        }
-        else {
-            TelaMensagem telaMensagem;
-            telaMensagem.apresentar("Dado em formato incorreto.");
-        }
-    }
-
-    if(resultado){
-        telaMensagem.apresentar("Sucesso na execucao da operacao.");
-    }
-    else {
-        telaMensagem.apresentar("Falha na execucao da operacao");
-    }
-    return resultado;
-}
-
 // ISProjetos
 
 bool ComandoISProjetoConsultarProjeto::executar(Projeto* projeto) {
@@ -235,12 +198,5 @@ bool ComandoISProjetoEditarProjeto::executar(Projeto projeto) {
     container = ContainerProjeto::getInstancia();
 
     return container->atualizar(projeto);
-}
-
-bool ComandoISProjetoDescadastrarProjeto::executar(Codigo codigo) {
-    ContainerProjeto* container;
-    container = ContainerProjeto::getInstancia();
-
-    return container->remover(codigo);
 }
 
