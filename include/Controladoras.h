@@ -98,4 +98,16 @@ class CntrServicoUsuario:public IServicoUsuario{
         bool consultar(Usuario*);
 };
 
+class CntrServicoProjeto:public IServicoProjeto{
+public:
+        bool cadastrarProjeto(Projeto);
+        bool descadastrarProjeto(Codigo);
+        bool editarProjeto(Projeto);
+        bool consultarProjeto(Projeto*);
+        bool cadastrarTarefa(Tarefa);
+        bool descadastrarTarefa(Codigo);
+        bool editarTarefa(Tarefa);
+        bool consultarTarefa(Tarefa*);
+};
+
 #endif // CONTROLADORAS_H_INCLUDED

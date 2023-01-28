@@ -51,6 +51,26 @@ public:
     char apresentar();
 };
 
+<<<<<<< HEAD
+class TelaCodigo {
+public:
+    void apresentar(Codigo*);
+};
+
+class TelaConsultaProjeto {
+public:
+    char apresentar(Projeto*);
+};
+
+class TelaCadastroProjeto {
+public:
+    void apresentar(Projeto*);
+};
+
+class TelaEdicaoProjeto {
+public:
+    void apresentar(Projeto*);
+=======
 class TelaConsultarUsuario {
 public:
     char apresentar(Usuario);
@@ -59,6 +79,7 @@ public:
 class TelaEdicaoUsuario {
 public:
     void apresentar(Usuario *);
+>>>>>>> main
 };
 
 #endif // TELAS_H_INCLUDED

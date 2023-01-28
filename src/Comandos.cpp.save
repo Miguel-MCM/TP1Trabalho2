@@ -37,49 +37,41 @@ void ComandoIAUsuarioEditar::executar(IServicoUsuario* cntrServicoUsuario, Matri
 
     bool resultado;
     Usuario usuario;
-    usuario.setMatricula(*matricula);
-    TelaEdicaoUsuario telaEdicaoUsuario;
+
     // A seguir, incluir código de interação com o usuário.
 
     // Solicitar serviço.
-    telaEdicaoUsuario.apresentar(&usuario);
+
     resultado = cntrServicoUsuario->editar(usuario);
 
     // Criticar resultado e apresentar mensagem correspondente.
-    TelaMensagem telaMensagem;
+
     if(resultado){
-         telaMensagem.apresentar("Sucesso na execucao da operacao");
+         //cout << "Sucesso na execucao da operacao" << endl;
     }
     else {
-
         //cout << "Falha na execucao da operacao" << endl;
-        telaMensagem.apresentar("Falha na execucao da operacao");
     }
 }
 
 void ComandoIAUsuarioConsultar::executar(IServicoUsuario* cntrServicoUsuario, Matricula* matricula){
 
     bool resultado;
-    Usuario * usuario = new Usuario();
-    usuario->setMatricula(*matricula);
+    Usuario usuario;
 
     // A seguir, incluir código de interação com o usuário.
 
     // Solicitar serviço.
 
-    resultado = cntrServicoUsuario->consultar(usuario);
+    resultado = cntrServicoUsuario->editar(usuario);
 
     // Criticar resultado e apresentar mensagem correspondente.
 
     if(resultado){
          //cout << "Sucesso na execucao da operacao" << endl;
-        TelaConsultarUsuario telaConsultarUsuario;
-        telaConsultarUsuario.apresentar(*usuario);
     }
     else {
         //cout << "Falha na execucao da operacao" << endl;
-        TelaMensagem telaMensagem;
-        telaMensagem.apresentar("Falha na execucao da operacao");
     }
 }
 
@@ -118,7 +110,7 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
                     ComandoIAProjetoDescadastrarProjeto comandoDescadastrar;
                     if (comandoDescadastrar.executar(cntrServicoProjeto, projeto->getCodigo()))
                         continuar = false;
-                    break;
+                    break
                 case '3':
                     continuar = false;
                     break;
@@ -197,7 +189,7 @@ bool ComandoIAProjetoDescadastrarProjeto::executar(IServicoProjeto* cntrServicoP
         }
         else if (input == 'N' || input == 'n') {
             resultado = false;
-            return false;
+            return;
         }
         else {
             TelaMensagem telaMensagem;
