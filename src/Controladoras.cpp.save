@@ -234,6 +234,7 @@ bool CntrServicoProjeto::cadastrarProjeto(Projeto projeto){
 }
 
 bool CntrServicoProjeto::descadastrarProjeto(Codigo){
+    ComandoISProjetoDescadastrarProjeto comando
     return false;
 }
 
