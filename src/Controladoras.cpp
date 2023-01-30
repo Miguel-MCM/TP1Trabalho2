@@ -223,9 +223,16 @@ bool CntrServicoUsuario::cadastrar(Usuario usuario) {
 
 bool CntrServicoUsuario::descadastrar(Matricula matricula) {
 
+    ContainerTarefa *containerTarefa = ContainerTarefa::getInstancia();
+    if (!containerTarefa->removerPorUsuario(matricula))
+        return false;
+
+    ContainerProjeto *containerProjeto = ContainerProjeto::getInstancia();
+    if (!containerProjeto->removerPorUsuario(matricula))
+        return false;
+
     ContainerUsuario* container;
     container = ContainerUsuario::getInstancia();
-
     return container->remover(matricula);
 }
 

@@ -100,6 +100,20 @@ bool ContainerProjeto::atualizar(Projeto projeto){
     return false;
 }
 
+bool ContainerProjeto::removerPorUsuario(Matricula usuario) {
+    //map<string, Tarefa>::iterator it;
+    list<Codigo> paraRemover;
+    for (map<string, Projeto>::iterator it = container.begin(); it != container.end(); ++it) {
+        if (it->second.getUsuario().getValor() == usuario.getValor()) {
+                paraRemover.push_front(it->second.getCodigo());
+        }
+    }
+
+    for (list<Codigo>::iterator it = paraRemover.begin(); it != paraRemover.end(); ++it) {
+        remover(*it);
+    }
+    return true;
+}
 
 ContainerTarefa* ContainerTarefa::instancia = nullptr;
 
@@ -150,6 +164,21 @@ bool ContainerTarefa::removerPorProjeto(Codigo projeto) {
     list<Codigo> paraRemover;
     for (map<string, Tarefa>::iterator it = container.begin(); it != container.end(); ++it) {
         if (it->second.getProjeto().getValor() == projeto.getValor()) {
+                paraRemover.push_front(it->second.getCodigo());
+        }
+    }
+
+    for (list<Codigo>::iterator it = paraRemover.begin(); it != paraRemover.end(); ++it) {
+        remover(*it);
+    }
+    return true;
+}
+
+bool ContainerTarefa::removerPorUsuario(Matricula usuario) {
+    //map<string, Tarefa>::iterator it;
+    list<Codigo> paraRemover;
+    for (map<string, Tarefa>::iterator it = container.begin(); it != container.end(); ++it) {
+        if (it->second.getUsuario().getValor() == usuario.getValor()) {
                 paraRemover.push_front(it->second.getCodigo());
         }
     }

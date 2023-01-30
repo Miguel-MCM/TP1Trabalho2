@@ -32,7 +32,7 @@ class ContainerProjeto{
         bool remover(Codigo);
         bool pesquisar(Projeto*);
         bool atualizar(Projeto);
-        bool removerPorUsuario(Matricula);
+        bool removerPorUsuario(M)
 };
 
 class ContainerTarefa{
@@ -47,7 +47,6 @@ class ContainerTarefa{
         bool pesquisar(Tarefa*);
         bool atualizar(Tarefa);
         bool removerPorProjeto(Codigo);
-        bool removerPorUsuario(Matricula);
 };
 
 #endif // CONTROLADORAS_H_INCLUDED

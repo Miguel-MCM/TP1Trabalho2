@@ -1,6 +1,7 @@
 #include "Containers.h"
 #include "Telas.h"
 
+#include <list>
 #include <iostream>
 
 ContainerUsuario* ContainerUsuario::instancia = nullptr;
@@ -99,6 +100,20 @@ bool ContainerProjeto::atualizar(Projeto projeto){
     return false;
 }
 
+bool ContainerProjeto::removerPorUsuario(Matricula usuario) {
+    //map<string, Tarefa>::iterator it;
+    list<Matricula> paraRemover;
+    for (map<string, Projeto>::iterator it = container.begin(); it != container.end(); ++it) {
+        if (it->second.getUsuario().getValor() == usuario.getValor()) {
+                paraRemover.push_front(it->second.getCodigo());
+        }
+    }
+
+    for (list<Codigo>::iterator it = paraRemover.begin(); it != paraRemover.end(); ++it) {
+        remover(*it);
+    }
+    return true;
+}
 
 ContainerTarefa* ContainerTarefa::instancia = nullptr;
 
@@ -146,14 +161,16 @@ bool ContainerTarefa::atualizar(Tarefa tarefa){
 
 bool ContainerTarefa::removerPorProjeto(Codigo projeto) {
     //map<string, Tarefa>::iterator it;
-    list<map<string, Tarefa>::iterator> paraRemover;
+    list<Codigo> paraRemover;
     for (map<string, Tarefa>::iterator it = container.begin(); it != container.end(); ++it) {
         if (it->second.getProjeto().getValor() == projeto.getValor()) {
-                paraRemover.push_front(it);
+                paraRemover.push_front(it->second.getCodigo());
         }
     }
-    
-    for (list<map<string, Tarefa>::iterator>::iterator it = paraRemover.begin(); it != par)
+
+    for (list<Codigo>::iterator it = paraRemover.begin(); it != paraRemover.end(); ++it) {
+        remover(*it);
+    }
     return true;
 }
 
