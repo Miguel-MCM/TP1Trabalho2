@@ -10,6 +10,31 @@ using namespace std;
 int main()
 {
 
+    // Inicio do BD
+    ContainerUsuario *contUsuario = ContainerUsuario::getInstancia();
+    Usuario usuario;
+    Matricula matricula;
+    matricula.setValor("ABCD1234");
+    usuario.setMatricula(matricula);
+    Senha senha;
+    senha.setValor("ABC123");
+    usuario.setSenha(senha);
+
+    contUsuario->incluir(usuario);
+
+    Projeto projeto;
+    Codigo codigo;
+    codigo.setValor("12345678900");
+    projeto.setCodigo(codigo);
+    projeto.SetUsuario(matricula);
+    ContainerProjeto* contProjeto = ContainerProjeto::getInstancia();
+    contProjeto->incluir(projeto);
+    
+    Tarefa tarefa;
+    tarefa.setCodigo(codigo);
+    tarefa.setProjeto(codigo);
+    tarefa.setUsuario(matricula);
+    ContainerTarefa *contTarefa = ContainerTarefa
     // Instanciar Builder.
 
     BuilderSistema* builder;

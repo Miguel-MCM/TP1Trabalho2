@@ -27,13 +27,19 @@ bool ContainerUsuario::remover(Matricula matricula){
     return false;
 }
 
-bool ContainerUsuario::pesquisar(Usuario* usuario){
+bool ContainerUsuario::pesquisar(Usuario * usuario){
     map<string, Usuario>::iterator it = container.find(usuario->getMatricula().getValor());
     if(it != container.end()){
-            if(it->second.getSenha().getValor() == usuario->getSenha().getValor()){
-               *usuario = it->second;
-               return true;
-            }
+        *usuario = it->second;
+        return true;
+    }
+    return false;
+}
+
+bool ContainerUsuario::autenticar(Usuario usuario) {
+    map<string, Usuario>::iterator it = container.find(usuario.getMatricula().getValor());
+    if(it != container.end() && it->second.getSenha().getValor() == usuario.getSenha().getValor()){
+        return true;
     }
     return false;
 }
@@ -91,5 +97,63 @@ bool ContainerProjeto::atualizar(Projeto projeto){
         }
     }
     return false;
+}
+
+
+ContainerTarefa* ContainerTarefa::instancia = nullptr;
+
+
+ContainerTarefa* ContainerTarefa::getInstancia() {
+    if (instancia == nullptr)
+        instancia = new ContainerTarefa();
+    return instancia;
+}
+
+bool ContainerTarefa::incluir(Tarefa tarefa){
+    return container.insert(make_pair(tarefa.getCodigo().getValor(), tarefa)).second;
+}
+
+bool ContainerTarefa::remover(Codigo codigo){
+    map<string, Tarefa>::iterator it = container.find(codigo.getValor());
+    if(it != container.end()){
+        container.erase(it);
+        return true;
+    }
+    return false;
+}
+
+bool ContainerTarefa::pesquisar(Tarefa* tarefa){
+    map<string, Tarefa>::iterator it = container.find(tarefa->getCodigo().getValor());
+    if(it != container.end()){
+            if(it->second.getUsuario().getValor() == tarefa->getUsuario().getValor()){
+               *tarefa = it->second;
+               return true;
+            }
+    }
+    return false;
+}
+
+bool ContainerTarefa::atualizar(Tarefa tarefa){
+    map<string, Tarefa>::iterator it = container.find(tarefa.getCodigo().getValor());
+    if(it != container.end()){
+        if(it->second.getUsuario().getValor() == tarefa.getUsuario().getValor()){
+        it->second = tarefa;
+        return true;
+        }
+    }
+    return false;
+}
+
+bool ContainerTarefa::removerPorProjeto(Codigo projeto) {
+    //map<string, Tarefa>::iterator it;
+    list<map<string, Tarefa>::iterator> paraRemover;
+    for (map<string, Tarefa>::iterator it = container.begin(); it != container.end(); ++it) {
+        if (it->second.getProjeto().getValor() == projeto.getValor()) {
+                paraRemover.push_front(it);
+        }
+    }
+    
+    for (list<map<string, Tarefa>::iterator>::iterator it = paraRemover.begin(); it != par)
+    return true;
 }
 

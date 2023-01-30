@@ -45,6 +45,31 @@ public:
     void executar(IServicoProjeto*, Projeto);
 };
 
+class ComandoIAProjetoDescadastrarProjeto {
+public:
+    bool executar(IServicoProjeto*, Projeto);
+};
+
+class ComandoIAProjetoConsultarTarefa:public ComandoIAProjeto {
+public:
+    void executar(IServicoProjeto*, Matricula*);
+};
+
+class ComandoIAProjetoCadastrarTarefa:public ComandoIAProjeto {
+public:
+    void executar(IServicoProjeto*, Matricula*);
+};
+
+class ComandoIAProjetoEditarTarefa {
+public:
+    void executar(IServicoProjeto*, Tarefa);
+};
+
+class ComandoIAProjetoDescadastrarTarefa {
+public:
+    bool executar(IServicoProjeto*, Tarefa);
+};
+
 class ComandoISProjetoConsultarProjeto {
 public:
     bool executar(Projeto* projeto);
@@ -58,6 +83,31 @@ public:
 class ComandoISProjetoEditarProjeto {
 public:
     bool executar(Projeto);
+};
+
+class ComandoISProjetoDescadastrarProjeto {
+public:
+    bool executar(Codigo);
+};
+
+class ComandoISProjetoCadastrarTarefa {
+public:
+    bool executar(Tarefa);
+};
+
+class ComandoISProjetoConsultarTarefa {
+public:
+    bool executar(Tarefa* tarefa);
+};
+
+class ComandoISProjetoEditarTarefa {
+public:
+    bool executar(Tarefa);
+};
+
+class ComandoISProjetoDescadastarTarefa {
+public:
+    bool executar(Codigo);
 };
 
 

@@ -5,97 +5,6 @@
 #include "Entidades.h"
 
 using namespace std;
-///@brief Entidade que representa um trabalho realizado de uma certa disciplina dentro de um prazo determinado.
-//por: Anita Garcia Lagos OLiveira (211068243)
-class Tarefa {
-    private:
-            Texto nome;
-            Codigo codigo;
-            Data inicio;
-            Data termino;
-            Disciplina disciplina;
-    public:
-            ///@brief Armazena o nome da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Texto.
-            /// @param - Texto nome
-            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
-            void setNome(const Texto&);
-            ///@brief Retorna o nome da Tarefa.
-            /// @return - Texto nome
-            Texto getNome() const;
-
-            ///@brief Armazena o código da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Código.
-            /// @param - Codigo codigo
-            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
-            void setCodigo(const Codigo&);
-            /// @brief Retorna o código da Tarefa.
-            /// @return - Codigo codigo
-            Codigo getCodigo() const;
-
-            /// @brief Armazena a data de início da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Data.
-            /// @param - Data inicio
-            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
-            void setInicio(const Data&);
-            /// @brief Retorna a data de início da Tarefa.
-            /// @return - Data inicio
-            Data getInicio() const;
-
-            /// @brief Armazena a data de término da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Data.
-            /// @param - Data termino
-            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
-            void setTermino(const Data&);
-
-            /// @brief Retorna a data de término da Tarefa.
-            /// @return - Data termino
-            Data getTermino() const;
-
-            /// @brief Armazena a disciplina da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Disciplina.
-            /// @param - Disciplina discipllina
-            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
-            void setDisciplina(const Disciplina&);
-            /// @brief Retorna a disciplina da Tarefa.
-            /// @return - Disciplina disciplina
-            Disciplina getDisciplina() const;
-};
-
-inline void Tarefa::setNome(const Texto &nome){
-    this->nome = nome;
-}
-
-inline Texto Tarefa::getNome() const{
-    return nome;
-}
-
-inline void Tarefa::setCodigo(const Codigo &codigo){
-    this->codigo = codigo;
-}
-
-inline Codigo Tarefa::getCodigo() const{
-    return codigo;
-}
-
-inline void Tarefa::setInicio(const Data &inicio){
-    this->inicio = inicio;
-}
-
-inline Data Tarefa::getInicio() const{
-    return inicio;
-}
-
-inline void Tarefa::setTermino(const Data &termino){
-    this->termino = termino;
-}
-
-inline Data Tarefa::getTermino() const{
-    return termino;
-}
-
-inline void Tarefa::setDisciplina(const Disciplina &disciplina){
-    this->disciplina = disciplina;
-}
-
-inline Disciplina Tarefa::getDisciplina() const{
-    return disciplina;
-}
 
 ///@brief Um projeto é um esforço temporário que tem como finalidade um resultado único e possui recursos delimitados; é identificado no sistema por um código, e possui um nome e uma descrição.
 class Projeto {
@@ -160,6 +69,120 @@ inline void Projeto::SetUsuario(const Matricula &usuario){
 
 inline Matricula Projeto::getUsuario() const {
     return usuario;
+}
+
+///@brief Entidade que representa um trabalho realizado de uma certa disciplina dentro de um prazo determinado.
+//por: Anita Garcia Lagos OLiveira (211068243)
+class Tarefa {
+    private:
+            Texto nome;
+            Codigo codigo;
+            Data inicio;
+            Data termino;
+            Disciplina disciplina;
+            Codigo projeto;
+            Matricula usuario;
+    public:
+            ///@brief Armazena o nome da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Texto.
+            /// @param - Texto nome
+            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
+            void setNome(const Texto&);
+            ///@brief Retorna o nome da Tarefa.
+            /// @return - Texto nome
+            Texto getNome() const;
+
+            ///@brief Armazena o código da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Código.
+            /// @param - Codigo codigo
+            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
+            void setCodigo(const Codigo&);
+            /// @brief Retorna o código da Tarefa.
+            /// @return - Codigo codigo
+            Codigo getCodigo() const;
+
+            /// @brief Armazena a data de início da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Data.
+            /// @param - Data inicio
+            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
+            void setInicio(const Data&);
+            /// @brief Retorna a data de início da Tarefa.
+            /// @return - Data inicio
+            Data getInicio() const;
+
+            /// @brief Armazena a data de término da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Data.
+            /// @param - Data termino
+            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
+            void setTermino(const Data&);
+
+            /// @brief Retorna a data de término da Tarefa.
+            /// @return - Data termino
+            Data getTermino() const;
+
+            /// @brief Armazena a disciplina da Tarefa caso o parâmetro passado seguir corretamente a formatação do domínio Disciplina.
+            /// @param - Disciplina discipllina
+            /// @throw - invalid_argument : se o valor passado não cumprir as regras de formatação
+            void setDisciplina(const Disciplina&);
+            /// @brief Retorna a disciplina da Tarefa.
+            /// @return - Disciplina disciplina
+            Disciplina getDisciplina() const;
+            void setProjeto(const Codigo);
+            Codigo getProjeto() const;
+            Matricula getUsuario() const;
+            void setUsuario(const Matricula);
+};
+
+inline void Tarefa::setUsuario(const Matricula usuario) {
+    this->usuario = usuario;
+}
+
+inline void Tarefa::setProjeto(const Codigo projeto) {
+    this->projeto = projeto;
+}
+
+inline Codigo Tarefa::getProjeto() const {
+    return projeto;
+}
+
+inline Matricula Tarefa::getUsuario() const {
+    return usuario;
+}
+
+inline void Tarefa::setNome(const Texto &nome){
+    this->nome = nome;
+}
+
+inline Texto Tarefa::getNome() const{
+    return nome;
+}
+
+inline void Tarefa::setCodigo(const Codigo &codigo){
+    this->codigo = codigo;
+}
+
+inline Codigo Tarefa::getCodigo() const{
+    return codigo;
+}
+
+inline void Tarefa::setInicio(const Data &inicio){
+    this->inicio = inicio;
+}
+
+inline Data Tarefa::getInicio() const{
+    return inicio;
+}
+
+inline void Tarefa::setTermino(const Data &termino){
+    this->termino = termino;
+}
+
+inline Data Tarefa::getTermino() const{
+    return termino;
+}
+
+inline void Tarefa::setDisciplina(const Disciplina &disciplina){
+    this->disciplina = disciplina;
+}
+
+inline Disciplina Tarefa::getDisciplina() const{
+    return disciplina;
 }
 
 ///@brief Usuários são agentes externos ao sistema que usufruem da tecnologia para realizar determinado projeto.

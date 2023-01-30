@@ -34,5 +34,19 @@ class ContainerProjeto{
         bool atualizar(Projeto);
 };
 
+class ContainerTarefa{
+    private:
+        map<string, Tarefa> container;                 // Mapa de usuários.
+        static ContainerTarefa *instancia;             // Ponteiro para instância da classe.
+        ContainerTarefa(){};                           // Construtor.
+    public:
+        static  ContainerTarefa* getInstancia();       // Método para instanciar classe.
+        bool incluir(Tarefa);                          // Métodos responsáveis por prestar serviços.
+        bool remover(Codigo);
+        bool pesquisar(Tarefa*);
+        bool atualizar(Tarefa);
+        bool removerPorProjeto(Codigo);
+};
+
 #endif // CONTROLADORAS_H_INCLUDED
 

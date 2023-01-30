@@ -183,6 +183,16 @@ void CntrApresentacaoProjeto::executar(Matricula* matricula) {
                 comando->executar(cntrServicoProjeto, matricula);
                 delete comando;
                 break;
+            case '3':
+                comando = new ComandoIAProjetoConsultarTarefa();
+                comando->executar(cntrServicoProjeto, matricula);
+                delete comando;
+                break;
+            case '4':
+                comando = new ComandoIAProjetoCadastrarTarefa();
+                comando->executar(cntrServicoProjeto, matricula);
+                delete comando;
+                break;
             case '5':
                 return;
             default:
@@ -245,8 +255,9 @@ bool CntrServicoProjeto::cadastrarProjeto(Projeto projeto){
     return comando.executar(projeto);
 }
 
-bool CntrServicoProjeto::descadastrarProjeto(Codigo){
-    return false;
+bool CntrServicoProjeto::descadastrarProjeto(Codigo codigo){
+    ComandoISProjetoDescadastrarProjeto comando;
+    return comando.executar(codigo);
 }
 
 bool CntrServicoProjeto::editarProjeto(Projeto projeto){
@@ -254,20 +265,24 @@ bool CntrServicoProjeto::editarProjeto(Projeto projeto){
     return comando.executar(projeto);
 }
 
-bool CntrServicoProjeto::cadastrarTarefa(Tarefa){
-    return false;
+bool CntrServicoProjeto::cadastrarTarefa(Tarefa tarefa){
+    ComandoISProjetoCadastrarTarefa comando;
+    return comando.executar(tarefa);
 }
 
-bool CntrServicoProjeto::descadastrarTarefa(Codigo){
-    return false;
+bool CntrServicoProjeto::descadastrarTarefa(Codigo codigo){
+    ComandoISProjetoDescadastarTarefa comando;
+    return comando.executar(codigo);
 }
 
-bool CntrServicoProjeto::editarTarefa(Tarefa){
-    return false;
+bool CntrServicoProjeto::editarTarefa(Tarefa tarefa){
+    ComandoISProjetoEditarTarefa comando;
+    return comando.executar(tarefa);
 }
 
-bool CntrServicoProjeto::consultarTarefa(Tarefa*){
-    return false;
+bool CntrServicoProjeto::consultarTarefa(Tarefa* tarefa){
+    ComandoISProjetoConsultarTarefa comando;
+    return comando.executar(tarefa);
 }
 
 
