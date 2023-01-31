@@ -36,18 +36,28 @@ void ComandoIAUsuarioDescadastrar::executar(IServicoUsuario* cntrServicoUsuario,
 void ComandoIAUsuarioEditar::executar(IServicoUsuario* cntrServicoUsuario, Matricula* matricula){
 
     bool resultado;
+    bool valido = false;
     Usuario usuario;
+    TelaMensagem telaMensagem;
     usuario.setMatricula(*matricula);
     TelaEdicaoUsuario telaEdicaoUsuario;
     // A seguir, incluir código de interação com o usuário.
 
+
     // Solicitar serviço.
-    telaEdicaoUsuario.apresentar(&usuario);
-    resultado = cntrServicoUsuario->editar(usuario);
+    while (!valido) {
+        try {
+            telaEdicaoUsuario.apresentar(&usuario);
+            valido = true;
+        }
+        catch (invalid_argument e) {
+            clear();
+            telaMensagem.apresentar("Dado em formato incorreto.");
+        }
+    }
 
     // Criticar resultado e apresentar mensagem correspondente.
-    TelaMensagem telaMensagem;
-    if(resultado){
+    if(cntrServicoUsuario->editar(usuario)){
          telaMensagem.apresentar("Sucesso na execucao da operacao");
     }
     else {
