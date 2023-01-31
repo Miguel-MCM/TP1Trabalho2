@@ -177,7 +177,7 @@
 	<stdexcept>
 	<cstdlib>
 
-1674762489 source:/home/thiago/Documents/TP1Trabalho2/main.cpp
+1675170644 source:/home/thiago/Documents/TP1Trabalho2/main.cpp
 	<string.h>
 	<stdexcept>
 	"Interfaces.h"
@@ -188,17 +188,18 @@
 	"Entidades.h"
 	"Containers.h"
 
-1674496648 /home/thiago/Documents/TP1Trabalho2/include/Entidades.h
+1675170644 /home/thiago/Documents/TP1Trabalho2/include/Entidades.h
 	"Dominios.h"
+	"Entidades.h"
 
 1674496648 /home/thiago/Documents/TP1Trabalho2/include/Dominios.h
 	<string>
 
-1674794895 /home/thiago/Documents/TP1Trabalho2/include/Containers.h
+1675170644 /home/thiago/Documents/TP1Trabalho2/include/Containers.h
 	"Entidades.h"
 	<map>
 
-1674825583 /home/thiago/Documents/TP1Trabalho2/include/Controladoras.h
+1675024990 /home/thiago/Documents/TP1Trabalho2/include/Controladoras.h
 	"Interfaces.h"
 	"curses.h"
 	<stdexcept>
@@ -210,31 +211,36 @@
 	<wchar.h>
 	<stdbool.h>
 
-1674762889 /home/thiago/Documents/TP1Trabalho2/include/Builders.h
+1675024990 /home/thiago/Documents/TP1Trabalho2/include/Builders.h
 	"Interfaces.h"
 	"Controladoras.h"
 
-1674762889 source:/home/thiago/Documents/TP1Trabalho2/src/Builders.cpp
+1675024990 source:/home/thiago/Documents/TP1Trabalho2/src/Builders.cpp
 	"Builders.h"
 
-1674828522 source:/home/thiago/Documents/TP1Trabalho2/src/Comandos.cpp
+1675170644 source:/home/thiago/Documents/TP1Trabalho2/src/Comandos.cpp
 	"Comandos.h"
 
-1674496648 /home/thiago/Documents/TP1Trabalho2/include/Comandos.h
+1675170644 /home/thiago/Documents/TP1Trabalho2/include/Comandos.h
+	"Interfaces.h"
+	"Telas.h"
+	<stdexcept>
+	<cstdlib>
 
-1674825711 /home/thiago/Documents/TP1Trabalho2/include/Telas.h
+1675170644 /home/thiago/Documents/TP1Trabalho2/include/Telas.h
 	"Entidades.h"
 	<string.h>
 	<stdlib.h>
 	"curses.h"
 	<ncurses.h>
 
-1674828248 source:/home/thiago/Documents/TP1Trabalho2/src/Containers.cpp
+1675170644 source:/home/thiago/Documents/TP1Trabalho2/src/Containers.cpp
 	"Containers.h"
 	"Telas.h"
+	<list>
 	<iostream>
 
-1674795090 source:/home/thiago/Documents/TP1Trabalho2/src/Controladoras.cpp
+1675170644 source:/home/thiago/Documents/TP1Trabalho2/src/Controladoras.cpp
 	"Controladoras.h"
 	"Comandos.h"
 
@@ -246,7 +252,7 @@
 1674496648 source:/home/thiago/Documents/TP1Trabalho2/src/Entidades.cpp
 	"Entidades.h"
 
-1674827299 source:/home/thiago/Documents/TP1Trabalho2/src/Telas.cpp
+1675170644 source:/home/thiago/Documents/TP1Trabalho2/src/Telas.cpp
 	"Telas.h"
 	<iostream>
 
