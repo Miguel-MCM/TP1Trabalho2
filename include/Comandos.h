@@ -40,14 +40,14 @@ public:
     void executar(IServicoProjeto*, Matricula*);
 };
 
-class ComandoIAProjetoEditarProjeto {
+class ComandoIAProjetoEditarProjeto:public ComandoIAProjeto{
 public:
-    void executar(IServicoProjeto*, Projeto);
+    void executar(IServicoProjeto*, Matricula*);
 };
 
-class ComandoIAProjetoDescadastrarProjeto {
+class ComandoIAProjetoDescadastrarProjeto{
 public:
-    bool executar(IServicoProjeto*, Projeto);
+    bool executar(IServicoProjeto*, Matricula*);
 };
 
 class ComandoIAProjetoConsultarTarefa:public ComandoIAProjeto {
@@ -60,14 +60,14 @@ public:
     void executar(IServicoProjeto*, Matricula*);
 };
 
-class ComandoIAProjetoEditarTarefa {
+class ComandoIAProjetoEditarTarefa:public ComandoIAProjeto {
 public:
-    void executar(IServicoProjeto*, Tarefa);
+    void executar(IServicoProjeto*, Matricula*);
 };
 
 class ComandoIAProjetoDescadastrarTarefa {
 public:
-    bool executar(IServicoProjeto*, Tarefa);
+    bool executar(IServicoProjeto*);
 };
 
 class ComandoISProjetoConsultarProjeto {

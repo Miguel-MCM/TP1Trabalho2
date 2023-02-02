@@ -168,6 +168,12 @@ void CntrApresentacaoProjeto::executar(Matricula* matricula) {
     TelaMenuProjeto telaMenuProjeto;
     char opcao;
     ComandoIAProjeto* comando;
+    ComandoIAProjetoEditarProjeto comandoIAPEP;
+    ComandoIAProjetoDescadastrarProjeto comandoIAPDP;
+    ComandoIAProjetoEditarTarefa comandoIAProjetoEditarTarefa;
+    ComandoIAProjetoDescadastrarTarefa comandoIAProjetoDescadastrarTarefa;
+
+
 
     while(true) {
         opcao = telaMenuProjeto.apresentar();
@@ -176,24 +182,37 @@ void CntrApresentacaoProjeto::executar(Matricula* matricula) {
             case '1':
                 comando = new ComandoIAProjetoConsultarProjeto();
                 comando->executar(cntrServicoProjeto, matricula);
-                delete comando;
+
                 break;
             case '2':
                 comando = new ComandoIAProjetoCadastrarProjeto();
                 comando->executar(cntrServicoProjeto, matricula);
-                delete comando;
+
                 break;
             case '3':
-                comando = new ComandoIAProjetoConsultarTarefa();
-                comando->executar(cntrServicoProjeto, matricula);
-                delete comando;
+                comandoIAPEP.executar(cntrServicoProjeto, matricula);
+
                 break;
             case '4':
-                comando = new ComandoIAProjetoCadastrarTarefa();
-                comando->executar(cntrServicoProjeto, matricula);
-                delete comando;
+                comandoIAPDP.executar(cntrServicoProjeto, matricula);
+
                 break;
             case '5':
+                comando = new ComandoIAProjetoConsultarTarefa();
+                comando->executar(cntrServicoProjeto, matricula);
+
+                break;
+            case '6':
+                comando = new ComandoIAProjetoCadastrarTarefa();
+                comando->executar(cntrServicoProjeto, matricula);
+                break;
+            case '7':
+                comandoIAProjetoEditarTarefa.executar(cntrServicoProjeto, matricula);
+                break;
+            case '8':
+                comandoIAProjetoDescadastrarTarefa.executar(cntrServicoProjeto);
+                break;
+            case '9':
                 return;
             default:
                 TelaMensagem telaMensagem;

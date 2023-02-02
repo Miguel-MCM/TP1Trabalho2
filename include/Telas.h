@@ -58,7 +58,7 @@ public:
 
 class TelaConsultaProjeto {
 public:
-    char apresentar(Projeto*);
+    void apresentar(Projeto*);
 };
 
 class TelaCadastroProjeto {
@@ -73,7 +73,7 @@ public:
 
 class TelaConsultarUsuario {
 public:
-    char apresentar(Usuario);
+    void apresentar(Usuario);
 };
 
 class TelaEdicaoUsuario {
@@ -88,7 +88,7 @@ public:
 
 class TelaConsultaTarefa {
 public:
-    char apresentar(Tarefa*);
+    void apresentar(Tarefa*);
 };
 
 class TelaEdicaoTarefa {
