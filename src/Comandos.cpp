@@ -35,28 +35,24 @@ void ComandoIAUsuarioDescadastrar::executar(IServicoUsuario* cntrServicoUsuario,
 
 void ComandoIAUsuarioEditar::executar(IServicoUsuario* cntrServicoUsuario, Matricula* matricula){
 
-    bool resultado;
     bool valido = false;
     Usuario usuario;
+
     TelaMensagem telaMensagem;
     usuario.setMatricula(*matricula);
     TelaEdicaoUsuario telaEdicaoUsuario;
-    // A seguir, incluir código de interação com o usuário.
 
-
-    // Solicitar serviço.
     while (!valido) {
         try {
             telaEdicaoUsuario.apresentar(&usuario);
             valido = true;
         }
-        catch (invalid_argument e) {
+        catch (invalid_argument *e) {
             clear();
             telaMensagem.apresentar("Dado em formato incorreto.");
         }
     }
 
-    // Criticar resultado e apresentar mensagem correspondente.
     if(cntrServicoUsuario->editar(usuario)){
          telaMensagem.apresentar("Sucesso na execucao da operacao");
     }
@@ -115,33 +111,13 @@ void ComandoIAProjetoConsultarProjeto::executar(IServicoProjeto* cntrServicoProj
     projeto->setCodigo(*codigo);
 
     if(cntrServicoProjeto->consultarProjeto(projeto)){
-        bool continuar = true;
-        while(continuar) {
-            TelaConsultaProjeto telaConsultaProjeto;
-            switch(telaConsultaProjeto.apresentar(projeto)) {
-                case '1':
-                    ComandoIAProjetoEditarProjeto comando;
-                    comando.executar(cntrServicoProjeto, *projeto);
-                    cntrServicoProjeto->consultarProjeto(projeto);
-                    break;
-                case '2':
-                    ComandoIAProjetoDescadastrarProjeto comandoDescadastrar;
-                    if (comandoDescadastrar.executar(cntrServicoProjeto, *projeto))
-                        continuar = false;
-                    break;
-                case '3':
-                    continuar = false;
-                    break;
-                default:
-                    telaMensagem.apresentar("Opcao Invalida");
-            }
-        }
+        TelaConsultaProjeto telaConsultaProjeto;
+        telaConsultaProjeto.apresentar(projeto);
     }
     else {
-        telaMensagem.apresentar("Projeto Nao Encontrado");
+        telaMensagem.apresentar("Projeto nao encontrado");
     }
-    delete codigo;
-    delete projeto;
+
 }
 
 void ComandoIAProjetoCadastrarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula* matricula) {
@@ -151,6 +127,7 @@ void ComandoIAProjetoCadastrarProjeto::executar(IServicoProjeto* cntrServicoProj
 
     TelaCadastroProjeto telaCadastroProjeto;
     TelaMensagem telaMensagem;
+
     while(true) {
         try {
             telaCadastroProjeto.apresentar(&projeto);
@@ -169,14 +146,30 @@ void ComandoIAProjetoCadastrarProjeto::executar(IServicoProjeto* cntrServicoProj
     }
 }
 
-void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Projeto projeto) {
+void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula* matricula) {
 
     TelaEdicaoProjeto telaEdicaoProjeto;
     TelaMensagem telaMensagem;
+    TelaCodigo telaCodigo;
+
+    Codigo* codigo = new Codigo();
+    Projeto* projeto = new Projeto();
+    projeto->SetUsuario(*matricula);
+
+    while (true) {
+        try {
+            telaCodigo.apresentar(codigo);
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            telaMensagem.apresentar("Cogido Invalido.");
+        }
+    }
+    projeto->setCodigo(*codigo);
 
     while(true) {
         try {
-            telaEdicaoProjeto.apresentar(&projeto);
+            telaEdicaoProjeto.apresentar(projeto);
             break;
         }
         catch (const invalid_argument &exp) {
@@ -184,7 +177,7 @@ void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto
         }
     }
 
-    if (cntrServicoProjeto->editarProjeto(projeto)) {
+    if (cntrServicoProjeto->editarProjeto(*projeto)) {
         telaMensagem.apresentar("Projeto editado com sucesso.");
     }
     else {
@@ -192,10 +185,26 @@ void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto
     }
 }
 
-bool ComandoIAProjetoDescadastrarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Projeto projeto) {
+bool ComandoIAProjetoDescadastrarProjeto::executar(IServicoProjeto* cntrServicoProjeto, Matricula * matricula) {
     TelaMensagem telaMensagem;
+    TelaCodigo telaCodigo;
+
+    Codigo codigo;
+    Projeto* projeto = new Projeto();
+
     bool resultado;
     char input;
+
+    while (true) {
+        try {
+            telaCodigo.apresentar(&codigo);
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            telaMensagem.apresentar("Cogido Invalido.");
+        }
+    }
+    projeto->setCodigo(codigo);
 
     while(true) {
 
@@ -203,7 +212,7 @@ bool ComandoIAProjetoDescadastrarProjeto::executar(IServicoProjeto* cntrServicoP
         input = telaDescadastro.apresentar();
 
         if (input == 'S' || input == 's') {
-            resultado = cntrServicoProjeto->descadastrarProjeto(projeto.getCodigo());
+            resultado = cntrServicoProjeto->descadastrarProjeto(projeto->getCodigo());
             break;
         }
         else if (input == 'N' || input == 'n') {
@@ -271,39 +280,34 @@ void ComandoIAProjetoConsultarTarefa::executar(IServicoProjeto* cntrServicoProje
     tarefa->setCodigo(*codigo);
 
     if(cntrServicoProjeto->consultarTarefa(tarefa)){
-        bool continuar = true;
-        while(continuar) {
-            TelaConsultaTarefa TelaConsultaTarefa;
-            switch(TelaConsultaTarefa.apresentar(tarefa)) {
-                case '1':
-                    ComandoIAProjetoEditarTarefa comando;
-                    comando.executar(cntrServicoProjeto, *tarefa);
-                    cntrServicoProjeto->consultarTarefa(tarefa);
-                    break;
-                case '2':
-                    ComandoIAProjetoDescadastrarTarefa comandoDescadastrar;
-                    if (comandoDescadastrar.executar(cntrServicoProjeto, *tarefa))
-                        continuar = false;
-                    break;
-                case '3':
-                    continuar = false;
-                    break;
-                default:
-                    telaMensagem.apresentar("Opcao Invalida");
-            }
-        }
+        TelaConsultaTarefa telaConsultaTarefa;
+        telaConsultaTarefa.apresentar(tarefa);
     }
     else {
-        telaMensagem.apresentar("Tarefa Nao Encontrada");
+        telaMensagem.apresentar("Tarefa nao encontrada");
     }
-    delete codigo;
-    delete tarefa;
+
 }
 
-void ComandoIAProjetoEditarTarefa::executar(IServicoProjeto* cntrServicoProjeto, Tarefa tarefa) {
+void ComandoIAProjetoEditarTarefa::executar(IServicoProjeto* cntrServicoProjeto, Matricula * matricula) {
 
     TelaEdicaoTarefa telaEdicaoTarefa;
+    TelaCodigo telaCodigo;
     TelaMensagem telaMensagem;
+    Codigo codigo;
+    Tarefa tarefa;
+    tarefa.setUsuario(*matricula);
+
+    while (true) {
+        try {
+            telaCodigo.apresentar(&codigo);
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            telaMensagem.apresentar("Cogido Invalido.");
+        }
+    }
+    tarefa.setCodigo(codigo);
 
     while(true) {
         try {
@@ -323,10 +327,24 @@ void ComandoIAProjetoEditarTarefa::executar(IServicoProjeto* cntrServicoProjeto,
     }
 }
 
-bool ComandoIAProjetoDescadastrarTarefa::executar(IServicoProjeto* cntrServicoProjeto, Tarefa tarefa) {
+bool ComandoIAProjetoDescadastrarTarefa::executar(IServicoProjeto* cntrServicoProjeto) {
     TelaMensagem telaMensagem;
+    TelaCodigo telaCodigo;
+    Codigo* codigo = new Codigo();
+    Tarefa tarefa;
     bool resultado;
     char input;
+
+    while (true) {
+        try {
+            telaCodigo.apresentar(codigo);
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            telaMensagem.apresentar("Cogido Invalido.");
+        }
+    }
+    tarefa.setCodigo(*codigo);
 
     while(true) {
 
