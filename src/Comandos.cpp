@@ -157,6 +157,12 @@ void ComandoIAProjetoEditarProjeto::executar(IServicoProjeto* cntrServicoProjeto
     }
     projeto->setCodigo(*codigo);
 
+    if (!cntrServicoProjeto->consultarProjeto(projeto)) {
+
+        telaMensagem.apresentar("Projeto nao encontrado.");
+        return;
+    }
+
     while(true) {
         try {
             telaEdicaoProjeto.apresentar(projeto);
@@ -298,6 +304,12 @@ void ComandoIAProjetoEditarTarefa::executar(IServicoProjeto* cntrServicoProjeto,
         }
     }
     tarefa.setCodigo(codigo);
+    
+    if (!cntrServicoProjeto->consultarTarefa(&tarefa)) {
+
+        telaMensagem.apresentar("Tarefa nao encontrada.");
+        return;
+    }
 
     while(true) {
         try {
