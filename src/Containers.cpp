@@ -6,9 +6,6 @@
 
 ContainerUsuario* ContainerUsuario::instancia = nullptr;
 
-//------------------------------------------------------------------------------------
-// Implementações de métodos de classe container.
-
 ContainerUsuario* ContainerUsuario::getInstancia() {
     if (instancia == nullptr)
         instancia = new ContainerUsuario();
@@ -101,7 +98,6 @@ bool ContainerProjeto::atualizar(Projeto projeto){
 }
 
 bool ContainerProjeto::removerPorUsuario(Matricula usuario) {
-    //map<string, Tarefa>::iterator it;
     list<Codigo> paraRemover;
     for (map<string, Projeto>::iterator it = container.begin(); it != container.end(); ++it) {
         if (it->second.getUsuario().getValor() == usuario.getValor()) {
@@ -160,7 +156,6 @@ bool ContainerTarefa::atualizar(Tarefa tarefa){
 }
 
 bool ContainerTarefa::removerPorProjeto(Codigo projeto) {
-    //map<string, Tarefa>::iterator it;
     list<Codigo> paraRemover;
     for (map<string, Tarefa>::iterator it = container.begin(); it != container.end(); ++it) {
         if (it->second.getProjeto().getValor() == projeto.getValor()) {
@@ -175,7 +170,6 @@ bool ContainerTarefa::removerPorProjeto(Codigo projeto) {
 }
 
 bool ContainerTarefa::removerPorUsuario(Matricula usuario) {
-    //map<string, Tarefa>::iterator it;
     list<Codigo> paraRemover;
     for (map<string, Tarefa>::iterator it = container.begin(); it != container.end(); ++it) {
         if (it->second.getUsuario().getValor() == usuario.getValor()) {

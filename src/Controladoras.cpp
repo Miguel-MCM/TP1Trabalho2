@@ -23,7 +23,6 @@ void CntrApresentacaoControle::executar(){
                     }
                     else if (opcaoMenu == '2') {
                         cntrApresentacaoProjeto->executar(&matricula);
-                        //cntrApresentacaoProjeto/Tarefa
                     }
                     else if (opcaoMenu == '3') {
                         break;

@@ -9,22 +9,13 @@ using namespace std;
 
 int main()
 {
-
-    // Instanciar Builder.
-
     BuilderSistema* builder;
     builder = new BuilderSistema();
-
-    // Construir (build) sistema.
 
     CntrApresentacaoControle* cntrApresentacaoControle;
     cntrApresentacaoControle = builder->construir();
 
-    // Solicitar serviço de apresentacao.
-
     cntrApresentacaoControle->executar();
-
-    // Destruir builder.
 
     delete builder;
 

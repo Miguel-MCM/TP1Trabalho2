@@ -9,12 +9,12 @@ using namespace std;
 
 class ContainerUsuario{
     private:
-        map<string, Usuario> container;                 // Mapa de usuários.
-        static ContainerUsuario *instancia;             // Ponteiro para instância da classe.
-        ContainerUsuario(){};                           // Construtor.
+        map<string, Usuario> container;
+        static ContainerUsuario *instancia;
+        ContainerUsuario(){};
     public:
-        static  ContainerUsuario* getInstancia();       // Método para instanciar classe.
-        bool incluir(Usuario);                          // Métodos responsáveis por prestar serviços.
+        static  ContainerUsuario* getInstancia();
+        bool incluir(Usuario);
         bool remover(Matricula);
         bool pesquisar(Usuario*);
         bool atualizar(Usuario);
@@ -23,12 +23,12 @@ class ContainerUsuario{
 
 class ContainerProjeto{
     private:
-        map<string, Projeto> container;                 // Mapa de usuários.
-        static ContainerProjeto *instancia;             // Ponteiro para instância da classe.
-        ContainerProjeto(){};                           // Construtor.
+        map<string, Projeto> container;
+        static ContainerProjeto *instancia;
+        ContainerProjeto(){};
     public:
-        static  ContainerProjeto* getInstancia();       // Método para instanciar classe.
-        bool incluir(Projeto);                          // Métodos responsáveis por prestar serviços.
+        static  ContainerProjeto* getInstancia();
+        bool incluir(Projeto);
         bool remover(Codigo);
         bool pesquisar(Projeto*);
         bool atualizar(Projeto);
@@ -37,12 +37,12 @@ class ContainerProjeto{
 
 class ContainerTarefa{
     private:
-        map<string, Tarefa> container;                 // Mapa de usuários.
-        static ContainerTarefa *instancia;             // Ponteiro para instância da classe.
-        ContainerTarefa(){};                           // Construtor.
+        map<string, Tarefa> container;
+        static ContainerTarefa *instancia;
+        ContainerTarefa(){};
     public:
-        static  ContainerTarefa* getInstancia();       // Método para instanciar classe.
-        bool incluir(Tarefa);                          // Métodos responsáveis por prestar serviços.
+        static  ContainerTarefa* getInstancia();
+        bool incluir(Tarefa);
         bool remover(Codigo);
         bool pesquisar(Tarefa*);
         bool atualizar(Tarefa);

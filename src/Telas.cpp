@@ -25,13 +25,13 @@ void TelaMensagem::apresentar(string mensagem) {
 
     int linha,coluna;
 
-    initscr();                                                                      // Iniciar curses.
-    getmaxyx(stdscr,linha,coluna);                                                  // Armazenar quantidade de linhas e de colunas.
-    mvprintw(linha/2,(coluna-strlen(mensagem.c_str()))/2,"%s", mensagem.c_str());   // Imprimir dado.
-    noecho();                                                                       // Desabilitar eco.
-    getch();                                                                        // Ler caracter digitado.
-    echo();                                                                         // Habilitar eco.
-    clear();                                                                        // Limpar janela.
+    initscr();
+    getmaxyx(stdscr,linha,coluna);
+    mvprintw(linha/2,(coluna-strlen(mensagem.c_str()))/2,"%s", mensagem.c_str());
+    noecho();
+    getch();
+    echo();
+    clear();
     endwin();
 }
 
@@ -490,5 +490,3 @@ void TelaEdicaoTarefa::apresentar(Tarefa* tarefa) {
     }
 
 }
-//TELA DE DADOS
-//TELA DE EDITAR NOME E SENHA

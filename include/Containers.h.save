@@ -9,12 +9,12 @@ using namespace std;
 
 class ContainerUsuario{
     private:
-        map<string, Usuario> container;                 // Mapa de usuários.
-        static ContainerUsuario *instancia;             // Ponteiro para instância da classe.
-        ContainerUsuario(){};                           // Construtor.
+        map<string, Usuario> container;
+        static ContainerUsuario *instancia;
+        ContainerUsuario(){};
     public:
-        static  ContainerUsuario* getInstancia();       // Método para instanciar classe.
-        bool incluir(Usuario);                          // Métodos responsáveis por prestar serviços.
+        static  ContainerUsuario* getInstancia();
+        bool incluir(Usuario);
         bool remover(Matricula);
         bool pesquisar(Usuario*);
         bool atualizar(Usuario);
@@ -24,15 +24,15 @@ class ContainerUsuario{
 class ContainerProjeto{
     private:
         map<string, Projeto> container;                 // Mapa de usuários.
-        static ContainerProjeto *instancia;             // Ponteiro para instância da classe.
-        ContainerProjeto(){};                           // Construtor.
+        static ContainerProjeto *instancia;
+        ContainerProjeto(){};
     public:
-        static  ContainerProjeto* getInstancia();       // Método para instanciar classe.
-        bool incluir(Projeto);                          // Métodos responsáveis por prestar serviços.
+        static  ContainerProjeto* getInstancia();
+        bool incluir(Projeto);
         bool remover(Codigo);
         bool pesquisar(Projeto*);
         bool atualizar(Projeto);
-        bool removerPorUsuario(M)
+        bool removerPorUsuario(Matricula);
 };
 
 class ContainerTarefa{
@@ -47,6 +47,7 @@ class ContainerTarefa{
         bool pesquisar(Tarefa*);
         bool atualizar(Tarefa);
         bool removerPorProjeto(Codigo);
+        bool removerPorUsuario(Matricula);
 };
 
 #endif // CONTROLADORAS_H_INCLUDED
